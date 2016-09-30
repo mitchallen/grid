@@ -12,8 +12,12 @@ var request = require('supertest'),
 
 describe('module smoke test', function() {
 
+    var _module = null;
+
     before(function(done) {
         // Call before all tests
+        delete require.cache[require.resolve(modulePath)];
+        _module = require(modulePath);
         done();
     });
 
@@ -32,15 +36,51 @@ describe('module smoke test', function() {
         done();
     });
 
-    it('module should callback OK', function(done) {
-        delete require.cache[require.resolve(modulePath)];
-        let options = {};
-        require(modulePath).create(options, function(err,data) {
-            should.not.exist(err);
-            should.exist(data);
-            should.exist(data.status)
-            data.status.should.eql("OK");
-            done();
-        });
+    it('module should exist', function(done) {
+        should.exist(_module);
+        done();
+    });
+
+    it('create with no spec should return null', function(done) {
+        var obj = _module.create();
+        should.not.exist(obj);
+        done();
+    });
+
+    it('create with valid x and y parameters should return object', function(done) {
+        var obj = _module.create({ x: 5, y: 5 });
+        should.exist(obj);
+        done();
+    });
+
+    it('isCell with valid x and y parameters should return true', function(done) {
+        let sizeX = 5;
+        let sizeY = 5;
+        var obj = _module.create({ x: sizeX, y: sizeY });
+        should.exist(obj);
+        var result = obj.isCell(sizeX-1, sizeY-1);
+        result.should.eql(true);
+        done();
+    });
+
+    it('set with valid parameter should return true', function(done) {
+        var obj = _module.create({ x: 1, y: 1 });
+        should.exist(obj);
+        var result = obj.set(0,0,5);
+        result.should.eql(true);
+        done();
+    });
+
+    it('get with valid parameter should return value', function(done) {
+        var obj = _module.create({ x: 1, y: 1 });
+        should.exist(obj);
+        let tX = 0;
+        let tY = 0;
+        let tValue = 5;
+        var condition = obj.set(tX,tY,tValue);
+        condition.should.eql(true);
+        var result = obj.get(tX,tY);
+        result.should.eql(tValue);
+        done();
     });
 });
