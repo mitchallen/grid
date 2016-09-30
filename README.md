@@ -68,7 +68,7 @@ An example similar to this exists on the __examples__ folder out on the repo.
 
 Factory method that returns a grid object.
 
-It takes one spec parameter that must be an object with __x__ and __y__ values specify the size of the grid.
+It takes one spec parameter that must be an object with __x__ and __y__ values specifying the size of the grid.
 
 The __x__ and __y__ values can not be less than one (1).
 
