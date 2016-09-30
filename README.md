@@ -1,7 +1,7 @@
 
 @mitchallen/grid
 ==
-A simple 2D grid.
+A 2D grid that uses zero-based indexing.
 --
 * * *
 ## Installation
@@ -124,6 +124,8 @@ The returned value can be a number, a string or even an object.
 ## Examples
 
 You can find examples in the repos listed below in the __examples__ folder.
+
+* * *
 
 ## Testing
 
