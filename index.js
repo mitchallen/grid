@@ -7,7 +7,7 @@
 
 "use strict";
 
-module.exports = function (spec, callback) {
+module.exports.create = function (spec, callback) {
     let data = { status: "OK" };
     callback(null, data);
 };

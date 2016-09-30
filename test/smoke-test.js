@@ -35,7 +35,7 @@ describe('module smoke test', function() {
     it('module should callback OK', function(done) {
         delete require.cache[require.resolve(modulePath)];
         let options = {};
-        require(modulePath)(options, function(err,data) {
+        require(modulePath).create(options, function(err,data) {
             should.not.exist(err);
             should.exist(data);
             should.exist(data.status)

@@ -1,7 +1,7 @@
 
 @mitchallen/grid
 ==
-PUT DESCRIPTION HERE
+A simple 2D grid.
 --
 * * *
 ## Installation
