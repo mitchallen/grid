@@ -156,4 +156,9 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 * initial release
 
+#### Version 0.1.1
+
+* updated example to use published package
+* updated description in package.json
+
 * * *
