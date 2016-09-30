@@ -15,6 +15,12 @@ You must use __npm__ __2.7.0__ or higher because of the scoped package name.
 
 ## Usage
 
+Create a new folder and do the following at the command line:
+
+    $ npm init
+    $ npm install @mitchallen/grid --save
+
+In the same folder create a file called __index.js__ with the content below:
 
     "use strict";
     var gridFactory = require("@mitchallen/grid");
@@ -47,6 +53,12 @@ You must use __npm__ __2.7.0__ or higher because of the scoped package name.
     	console.log("grid value: ", result );
     }
     
+At the command line, execute the following:
+
+    $ node index.js
+  
+An example similar to this exists on the __examples__ folder out on the repo.
+  
 * * *
     
 ## Methods
@@ -111,7 +123,7 @@ The returned value can be a number, a string or even an object.
 
 ## Examples
 
-You can find examples in the __examples__ folder.
+You can find examples in the repos listed below in the __examples__ folder.
 
 ## Testing
 
