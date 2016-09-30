@@ -1,7 +1,7 @@
 {
   "name": "@mitchallen/grid",
   "version": "0.1.0",
-  "description": "",
+  "description": "A 2D grid that uses zero-based indexing",
   "main": "index.js",
   "scripts": {
     "//": "To use: npm start (useful if not a module)",
