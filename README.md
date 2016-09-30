@@ -85,9 +85,9 @@ You can call __create__ multiple times to create multiple grids.
 
 ### grid.isCell( x, y )
 
-The __x__ and __y__ parameters should be zero-based coordinates ranging from  zero (0) to direction size minus one. 
+The __x__ and __y__ parameters should be zero-based coordinates ranging from  zero (0) to axis size minus one. 
 
-For example if the __x__ size value past to the __create__ method is 5, then valid values for __x__ are __0__ through __4__. 
+For example if the __x__ size value passed to the __create__ method is 5, then valid values for __x__ are __0__ through __4__. 
 
 The method is called internally by __set__ and __get__.
 
@@ -160,5 +160,9 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 * updated example to use published package
 * updated description in package.json
+
+#### Version 0.1.2
+
+* updated readme
 
 * * *
