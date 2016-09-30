@@ -8,11 +8,14 @@ var value = 100;
 var i = xSize - 1;
 var j = ySize - 1;
 var grid = gridFactory.create( { x: xSize, y: ySize } );
+if(!grid) {
+    console.error("couldn't create grid");
+}
 if(! grid.isCell( i, j ) ) {
     console.error("parameters not within grid");
 }
 if(! grid.set( i, j, value )) {
-    console.error("couldn't create grid");
+    console.error("couldn't set grid value");
 }
 let result = grid.get( i, j );
 if(! result) {
