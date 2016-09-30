@@ -1,8 +1,9 @@
-
 @mitchallen/grid
-==
+===============================
+
 A 2D grid that uses zero-based indexing.
---
+----------------------------------------------------
+
 * * *
 ## Installation
 
