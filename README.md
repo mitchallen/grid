@@ -120,6 +120,16 @@ The returned value can be a number, a string or even an object.
     	console.log("grid value: ", result );
     }
 
+### grid.fill(value)
+
+Fills the grid with whatever is passed in as __value__. Value can be a number, a string or even an object. Any existing values in the grid will be replaced with the new fill value.
+
+    let result = grid.get( i, j );
+
+    let fillValue = "foo";
+    
+    var result = grid.fill(fillValue);
+
 * * *
 
 ## Examples
@@ -164,5 +174,9 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 #### Version 0.1.2
 
 * updated readme
+
+#### Version 0.1.3
+
+* added __fill__ method
 
 * * *

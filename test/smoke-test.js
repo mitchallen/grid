@@ -83,4 +83,19 @@ describe('module smoke test', function() {
         result.should.eql(tValue);
         done();
     });
+
+    it('fill with valid integer should fill grid with integer', function(done) {
+        let xSize = 5;
+        let ySize = 10;
+        var obj = _module.create({ x: xSize, y: ySize });
+        should.exist(obj);
+        let tValue = 999;
+        var result = obj.fill(tValue);
+        for(var x = 0; x < xSize; x++ ) {
+            for(var y = 0; y < ySize; y++ ) {
+                obj.get(x,y).should.eql(tValue);
+            }
+        }
+        done();
+    });
 });

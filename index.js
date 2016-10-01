@@ -16,7 +16,7 @@ module.exports.create = function (spec) {
     if(!_x || !_y) {
         return null;
     }
-    if(_x < 0 || _y < 0 ) {
+    if(_x < 0 || _y < 0) {
         return null;
     }
     var _array = [];
@@ -36,6 +36,13 @@ module.exports.create = function (spec) {
         get(x,y) {
             if(!this.isCell(x,y)) { return null; }
             return _array[x][y];
+        },
+        fill(value) {
+            for(var x = 0; x < _x; x++) {
+                for(var y = 0; y < _y; y++) {
+                    _array[x][y] = value;
+                }
+            }
         }
     };
 };
