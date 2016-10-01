@@ -10,7 +10,7 @@ var request = require('supertest'),
     should = require('should'),
     modulePath = "../index";
 
-describe('module set test', function() {
+describe('set method', function() {
 
     var _module = null;
 
@@ -36,7 +36,7 @@ describe('module set test', function() {
         done();
     });
 
-    it('set with valid parameters should return true', function(done) {
+    it('should return true when called with valid parameters', function(done) {
         var obj = _module.create({ x: 1, y: 1 });
         should.exist(obj);
         var result = obj.set(0,0,5);
@@ -44,7 +44,7 @@ describe('module set test', function() {
         done();
     });
 
-    it('set called twice should return second value', function(done) {
+    it('should return second value when called twice with same x and y values', function(done) {
         var obj = _module.create({ x: 1, y: 1 });
         should.exist(obj);
         let tX = 0;
@@ -59,7 +59,7 @@ describe('module set test', function() {
         done();
     });
 
-    it('set with x and y parameters set to size minus one should return true', function(done) {
+    it('should return true when called with x and y parameters set to size minus one', function(done) {
         let sizeX = 10;
         let sizeY = 20;
         var obj = _module.create({ x: sizeX, y: sizeY });
@@ -69,7 +69,7 @@ describe('module set test', function() {
         done();
     });
 
-    it('set with negative cell value should return true', function(done) {
+    it('should return true when called with negative cell value', function(done) {
         var obj = _module.create({ x: 1, y: 1 });
         should.exist(obj);
         var result = obj.set(0,0,-1);
@@ -77,7 +77,7 @@ describe('module set test', function() {
         done();
     });
 
-    it('set with string value should return true', function(done) {
+    it('should return true when called with string value', function(done) {
         var obj = _module.create({ x: 1, y: 1 });
         should.exist(obj);
         var result = obj.set(0,0,"foo");
@@ -85,7 +85,7 @@ describe('module set test', function() {
         done();
     });
 
-    it('set with object value should return true', function(done) {
+    it('should return true when called with object value', function(done) {
         var obj = _module.create({ x: 1, y: 1 });
         should.exist(obj);
         var result = obj.set(0,0,{ name: "foo" });

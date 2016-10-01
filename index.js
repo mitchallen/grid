@@ -43,6 +43,16 @@ module.exports.create = function (spec) {
                     _array[x][y] = value;
                 }
             }
+        },
+        cloneArray() {
+            var _clone = [];
+            while(_clone.push([]) < _x);
+            for(var x = 0; x < _x; x++) {
+                for(var y = 0; y < _y; y++) {
+                    _clone[x][y] = _array[x][y];
+                }
+            }
+            return _clone;
         }
     };
 };

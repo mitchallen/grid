@@ -10,7 +10,7 @@ var request = require('supertest'),
     should = require('should'),
     modulePath = "../index";
 
-describe('module multi grid test', function() {
+describe('multiple grids', function() {
 
     var _module = null;
 
@@ -36,7 +36,7 @@ describe('module multi grid test', function() {
         done();
     });
 
-    it('get with x and y parameters set to size minus should return value', function(done) {
+    it('should not interere with each other', function(done) {
         let sizeX = 20;
         let sizeY = 10;
         var grid0 = _module.create({ x: sizeX, y: sizeY });

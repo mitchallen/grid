@@ -129,7 +129,34 @@ Fills the grid with whatever is passed in as __value__. Value can be a number, a
     let fillValue = "foo";
     
     var result = grid.fill(fillValue);
+    
+### grid.cloneArray()
 
+Returns a clone of the internal array. This is not a reference. So changes to the cloned array should not change the original.
+
+	let tX = 0;
+	let tY = 0;
+	let gridValue = 100;
+	let cloneValue = 500;
+	
+	// Set a value in the original grid
+	grid.set(tX,tY,gridValue);
+
+	// Clone the grid	
+	let arr = grid.cloneArray();
+	
+	// Verify value exists in clone
+	arr[tX][tY].should.eql(gridValue);
+	
+	// Change value in clone
+	arr[tX][tY] = cloneValue;
+	
+	// Verify new value is set in clone
+	arr[tX][tY].should.eql(cloneValue);
+	
+	// Ensure that value does not alter original grid
+	grid.get(tX,tY).should.eql(gridValue);
+	
 * * *
 
 ## Examples
@@ -178,5 +205,9 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 #### Version 0.1.3
 
 * added __fill__ method
+
+#### Version 0.1.4
+
+* added __cloneArray__ method
 
 * * *

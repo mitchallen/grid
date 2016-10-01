@@ -10,7 +10,7 @@ var request = require('supertest'),
     should = require('should'),
     modulePath = "../index";
 
-describe('module isCell test', function() {
+describe('isCell method', function() {
 
     var _module = null;
 
@@ -36,7 +36,7 @@ describe('module isCell test', function() {
         done();
     });
 
-    it('isCell with valid x and y parameters should return true', function(done) {
+    it('should return true when called with valid x and y parameters', function(done) {
         let sizeX = 5;
         let sizeY = 5;
         var obj = _module.create({ x: sizeX, y: sizeY });
@@ -46,7 +46,7 @@ describe('module isCell test', function() {
         done();
     });
 
-    it('isCell with x and y parameters set to zero should return true', function(done) {
+    it('should return true when called with x and y parameters set to zero', function(done) {
         let sizeX = 1;
         let sizeY = 1;
         var obj = _module.create({ x: sizeX, y: sizeY });
@@ -56,7 +56,7 @@ describe('module isCell test', function() {
         done();
     });
 
-    it('isCell with x and y parameters set to size minus one should return true', function(done) {
+    it('should return true when called with x and y parameters set to size minus one', function(done) {
         let sizeX = 10;
         let sizeY = 5;
         var obj = _module.create({ x: sizeX, y: sizeY });
@@ -66,7 +66,7 @@ describe('module isCell test', function() {
         done();
     });
 
-    it('isCell with negative x and y parameters should return false', function(done) {
+    it('should return false when called with negative x and y parameters', function(done) {
         let sizeX = 5;
         let sizeY = 5;
         var obj = _module.create({ x: sizeX, y: sizeY });
@@ -76,7 +76,7 @@ describe('module isCell test', function() {
         done();
     });
 
-    it('isCell with negative x parameter should return false', function(done) {
+    it('should return false when called with negative x parameter', function(done) {
         let sizeX = 5;
         let sizeY = 5;
         var obj = _module.create({ x: sizeX, y: sizeY });
@@ -86,7 +86,7 @@ describe('module isCell test', function() {
         done();
     });
 
-    it('isCell with negative y parameter should return false', function(done) {
+    it('should return false when called with negative y parameter', function(done) {
         let sizeX = 5;
         let sizeY = 5;
         var obj = _module.create({ x: sizeX, y: sizeY });

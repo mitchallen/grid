@@ -1,6 +1,6 @@
 /**
     Module: @mitchallen/grid
-      Test: smoke-test
+      Test: fill-test
     Author: Mitch Allen
 */
 
@@ -10,7 +10,7 @@ var request = require('supertest'),
     should = require('should'),
     modulePath = "../index";
 
-describe('module fill test', function() {
+describe('fill method', function() {
 
     var _module = null;
 
@@ -36,7 +36,7 @@ describe('module fill test', function() {
         done();
     });
 
-    it('fill with valid integer should fill grid with integer', function(done) {
+    it('should fill grid with integer when called with integer', function(done) {
         let xSize = 5;
         let ySize = 10;
         var obj = _module.create({ x: xSize, y: ySize });
@@ -51,7 +51,7 @@ describe('module fill test', function() {
         done();
     });
 
-    it('fill with no argument should not change grid', function(done) {
+    it('should not change grid when called with no argument', function(done) {
         let xSize = 5;
         let ySize = 10;
         var obj = _module.create({ x: xSize, y: ySize });
@@ -65,7 +65,7 @@ describe('module fill test', function() {
         done();
     });
 
-    it('fill should override existing values', function(done) {
+    it('should override existing values', function(done) {
         let xSize = 5;
         let ySize = 10;
         var obj = _module.create({ x: xSize, y: ySize });
@@ -80,7 +80,7 @@ describe('module fill test', function() {
         done();
     });
 
-    it('fill with valid string should fill grid with string', function(done) {
+    it('should fill grid with string when called with a string', function(done) {
         let xSize = 5;
         let ySize = 10;
         var obj = _module.create({ x: xSize, y: ySize });
@@ -95,7 +95,7 @@ describe('module fill test', function() {
         done();
     });
 
-    it('fill with valid object should fill grid with object', function(done) {
+    it('should fill grid with object when called with a object', function(done) {
         let xSize = 5;
         let ySize = 10;
         var obj = _module.create({ x: xSize, y: ySize });

@@ -41,19 +41,19 @@ describe('module smoke test', function() {
         done();
     });
 
-    it('create with no spec should return null', function(done) {
+    it('create method with no spec should return null', function(done) {
         var obj = _module.create();
         should.not.exist(obj);
         done();
     });
 
-    it('create with valid x and y parameters should return object', function(done) {
+    it('create method with valid x and y parameters should return object', function(done) {
         var obj = _module.create({ x: 5, y: 5 });
         should.exist(obj);
         done();
     });
 
-    it('isCell with valid x and y parameters should return true', function(done) {
+    it('isCell method with valid x and y parameters should return true', function(done) {
         let sizeX = 5;
         let sizeY = 5;
         var obj = _module.create({ x: sizeX, y: sizeY });
@@ -63,7 +63,7 @@ describe('module smoke test', function() {
         done();
     });
 
-    it('set with valid parameter should return true', function(done) {
+    it('set method with valid parameter should return true', function(done) {
         var obj = _module.create({ x: 1, y: 1 });
         should.exist(obj);
         var result = obj.set(0,0,5);
@@ -71,7 +71,7 @@ describe('module smoke test', function() {
         done();
     });
 
-    it('get with valid parameter should return value', function(done) {
+    it('get method with valid parameter should return value', function(done) {
         var obj = _module.create({ x: 1, y: 1 });
         should.exist(obj);
         let tX = 0;
@@ -84,7 +84,7 @@ describe('module smoke test', function() {
         done();
     });
 
-    it('fill with valid integer should fill grid with integer', function(done) {
+    it('fill method with valid integer should fill grid with integer', function(done) {
         let xSize = 5;
         let ySize = 10;
         var obj = _module.create({ x: xSize, y: ySize });
@@ -96,6 +96,19 @@ describe('module smoke test', function() {
                 obj.get(x,y).should.eql(tValue);
             }
         }
+        done();
+    });
+
+   it('cloneArray method should return a clone of the internal array', function(done) {
+        var obj = _module.create({ x: 1, y: 1 });
+        should.exist(obj);
+        let tX = 0;
+        let tY = 0;
+        let tValue = 100;
+        var result = obj.set(tX,tY,tValue);
+        result.should.eql(true);
+        var arr = obj.cloneArray();
+        arr[tX][tY].should.eql(tValue);
         done();
     });
 });

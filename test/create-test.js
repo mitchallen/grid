@@ -10,7 +10,7 @@ var request = require('supertest'),
     should = require('should'),
     modulePath = "../index";
 
-describe('module smoke test', function() {
+describe('create method', function() {
 
     var _module = null;
 
@@ -36,67 +36,67 @@ describe('module smoke test', function() {
         done();
     });
 
-    it('create with no spec should return null', function(done) {
+    it('should return null when missing spec parameter', function(done) {
         var obj = _module.create();
         should.not.exist(obj);
         done();
     });
 
-    it('create with no x parameter should return null', function(done) {
+    it('should return null when called no spec x parameter', function(done) {
         var obj = _module.create({ y: 5 });
         should.not.exist(obj);
         done();
     });
 
-    it('create with no y parameter should return null', function(done) {
+    it('should return null when called no spec y parameter', function(done) {
         var obj = _module.create({ x: 5 });
         should.not.exist(obj);
         done();
     });
 
-    it('create with valid x and y parameters should return object', function(done) {
+    it('should return object when called with valid x and y parameters', function(done) {
         var obj = _module.create({ x: 5, y: 5 });
         should.exist(obj);
         done();
     });
 
-    it('create with x and y set to zero (0) should return null', function(done) {
+    it('should return null when called with x and y spec parameters set to zero (0) ', function(done) {
         var obj = _module.create({ x: 0, y: 0 });
         should.not.exist(obj);
         done();
     });
 
-    it('create with x set to zero (0) should return null', function(done) {
+    it('should return null when called with a spec x parameter set to zero (0)', function(done) {
         var obj = _module.create({ x: 0, y: 1 });
         should.not.exist(obj);
         done();
     });
 
-    it('create with y set to zero (0) should return null', function(done) {
+    it('should return null when called with a spec y parameter set to zero (0)', function(done) {
         var obj = _module.create({ x: 1, y: 0 });
         should.not.exist(obj);
         done();
     });
 
-    it('create with x and y set to one (1) should return object', function(done) {
+    it('should return an object when called with x and y set to one (1)', function(done) {
         var obj = _module.create({ x: 1, y: 1 });
         should.exist(obj);
         done();
     });
 
-    it('create with x and y set to negative value should return null', function(done) {
+    it('should return null when called with x and y set to negative value', function(done) {
         var obj = _module.create({ x: -1, y: -1 });
         should.not.exist(obj);
         done();
     });
 
-    it('create with x set to negative value should return null', function(done) {
+    it('should return null when called with x set to negative value', function(done) {
         var obj = _module.create({ x: -1, y: 1 });
         should.not.exist(obj);
         done();
     });
 
-    it('create with y set to negative value should return null', function(done) {
+    it('should return null when called with y set to negative value', function(done) {
         var obj = _module.create({ x: 1, y: -1 });
         should.not.exist(obj);
         done();
