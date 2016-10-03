@@ -25,6 +25,10 @@ module.exports.create = function (spec) {
         return null;
     }
     return {
+        log: function() { 
+            console.log("size: %d, %d", _x, _y);
+            console.log(_array); 
+        },
         isCell(x,y) {
             return x >= 0 && x < _x && y >= 0 && y < _y;
         },

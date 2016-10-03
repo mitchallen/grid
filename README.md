@@ -157,6 +157,20 @@ Returns a clone of the internal array. This is not a reference. So changes to th
 	// Ensure that value does not alter original grid
 	grid.get(tX,tY).should.eql(gridValue);
 	
+### grid.log()
+
+Logs the size and contents of the internal array.
+
+    grid.log();
+    
+Example output:
+
+    size: 4, 5
+    [ [ 20, 10, 10, 10, 10 ],
+      [ 10, 10, 10, 10, 10 ],
+      [ 10, 10, 10, 10, 10 ],
+      [ 10, 10, 10, 10, 30 ] ]
+
 * * *
 
 ## Examples
@@ -209,5 +223,9 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 #### Version 0.1.4
 
 * added __cloneArray__ method
+
+#### Version 0.1.5
+
+* added __log__ method
 
 * * *

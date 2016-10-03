@@ -111,4 +111,16 @@ describe('module smoke test', function() {
         arr[tX][tY].should.eql(tValue);
         done();
     });
+
+    it('log method should not throw exception', function(done) {
+        let xSize = 4;
+        let ySize = 5;
+        var grid = _module.create({ x: xSize, y: ySize });
+        should.exist(grid);
+        grid.fill(10)
+        grid.set(0,0,20);
+        grid.set(xSize - 1, ySize - 1,30);
+        grid.log();
+        done();
+    });
 });
