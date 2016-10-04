@@ -82,6 +82,20 @@ You can call __create__ multiple times to create multiple grids.
     var grid2 = gridFactory.create( { x: 7, y: 20 } );
     
 	if(!grid1 || !grid2) ...
+	
+### grid.xSize
+
+Returns the size of the x dimension.
+
+	grid.xSize.should.eql(5);
+	
+### grid.ySize
+
+Returns the size of the y dimension.
+
+	grid.ySize.should.eql(10);
+
+### grid.ySize
 
 ### grid.isCell( x, y )
 
@@ -227,5 +241,9 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 #### Version 0.1.5
 
 * added __log__ method
+
+#### Version 0.1.6
+
+* added the __xSize__ and __ySize__ properties
 
 * * *

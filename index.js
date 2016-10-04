@@ -25,6 +25,8 @@ module.exports.create = function (spec) {
         return null;
     }
     return {
+        xSize: _x,
+        ySize: _y,
         log: function() { 
             console.log("size: %d, %d", _x, _y);
             console.log(_array); 
