@@ -72,7 +72,7 @@ It takes one spec parameter that must be an object with __x__ and __y__ values s
 
 The __x__ and __y__ values can not be less than one (1).
 
-The method will return null if __create__ fails, such as with bad parameters.
+The method will set xSize and ySize to 0 if no parameters are set
 
 You can call __create__ multiple times to create multiple grids.
 
@@ -217,33 +217,48 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
-#### Version 0.1.0 
+#### Version 0.1.7
 
-* initial release
+* __create__ now sets defaults if parameters invalid instead of returning null
+
+#### Version 0.1.6
+
+* added the __xSize__ and __ySize__ properties
+
+#### Version 0.1.5
+
+* added __log__ method
+
+#### Version 0.1.4
+
+* added __cloneArray__ method
+
+#### Version 0.1.3
+
+* added __fill__ method
+
+#### Version 0.1.2
+
+* updated readme
 
 #### Version 0.1.1
 
 * updated example to use published package
 * updated description in package.json
 
-#### Version 0.1.2
+#### Version 0.1.0 
 
-* updated readme
+* initial release
 
-#### Version 0.1.3
 
-* added __fill__ method
 
-#### Version 0.1.4
 
-* added __cloneArray__ method
 
-#### Version 0.1.5
 
-* added __log__ method
 
-#### Version 0.1.6
 
-* added the __xSize__ and __ySize__ properties
+
+
+
 
 * * *
