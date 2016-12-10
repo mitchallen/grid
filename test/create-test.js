@@ -4,6 +4,9 @@
     Author: Mitch Allen
 */
 
+/*jshint node: true */
+/*jshint esversion: 6 */
+
 "use strict";
 
 var request = require('supertest'),
@@ -36,21 +39,33 @@ describe('create method', function() {
         done();
     });
 
-    it('should return null when missing spec parameter', function(done) {
+    it('should return object when missing spec parameter', function(done) {
         var obj = _module.create();
-        should.not.exist(obj);
+        should.exist(obj);
         done();
     });
 
-    it('should return null when called no spec x parameter', function(done) {
+    it('should return object when called no spec x parameter', function(done) {
         var obj = _module.create({ y: 5 });
-        should.not.exist(obj);
+        should.exist(obj);
         done();
     });
 
-    it('should return null when called no spec y parameter', function(done) {
+    it('should set xSize default when created with no x parameter', function(done) {
+        var obj = _module.create({ y: 5 });
+        obj.xSize.should.eql(0);
+        done();
+    });
+
+    it('should set ySize default when created with no y parameter', function(done) {
         var obj = _module.create({ x: 5 });
-        should.not.exist(obj);
+        obj.ySize.should.eql(0);
+        done();
+    });
+
+    it('should return object when called no spec y parameter', function(done) {
+        var obj = _module.create({ x: 5 });
+        should.exist(obj);
         done();
     });
 
@@ -60,21 +75,35 @@ describe('create method', function() {
         done();
     });
 
-    it('should return null when called with x and y spec parameters set to zero (0) ', function(done) {
+    it('should return xSize that matches create parameter', function(done) {
+        var x = 5;
+        var obj = _module.create({ x: x, y: 1 });
+        obj.xSize.should.eql(x);
+        done();
+    });
+
+    it('should return ySize that matches create parameter', function(done) {
+        var y = 5;
+        var obj = _module.create({ x: 1, y: y });
+        obj.ySize.should.eql(y);
+        done();
+    });
+
+    it('should return object when called with x and y spec parameters set to zero (0) ', function(done) {
         var obj = _module.create({ x: 0, y: 0 });
-        should.not.exist(obj);
+        should.exist(obj);
         done();
     });
 
-    it('should return null when called with a spec x parameter set to zero (0)', function(done) {
+    it('should return object when called with a spec x parameter set to zero (0)', function(done) {
         var obj = _module.create({ x: 0, y: 1 });
-        should.not.exist(obj);
+        should.exist(obj);
         done();
     });
 
-    it('should return null when called with a spec y parameter set to zero (0)', function(done) {
+    it('should return object when called with a spec y parameter set to zero (0)', function(done) {
         var obj = _module.create({ x: 1, y: 0 });
-        should.not.exist(obj);
+        should.exist(obj);
         done();
     });
 
@@ -84,21 +113,46 @@ describe('create method', function() {
         done();
     });
 
-    it('should return null when called with x and y set to negative value', function(done) {
+    it('should return object when called with x and y set to negative value', function(done) {
         var obj = _module.create({ x: -1, y: -1 });
-        should.not.exist(obj);
+        should.exist(obj);
         done();
     });
 
-    it('should return null when called with x set to negative value', function(done) {
+    it('should normalize x when called with x and y set to negative value', function(done) {
+        var obj = _module.create({ x: -1, y: -1 });
+        obj.xSize.should.eql(0);
+        done();
+    });
+
+    it('should normalize y when called with x and y set to negative value', function(done) {
+        var obj = _module.create({ x: -1, y: -1 });
+        obj.ySize.should.eql(0);
+        done();
+    });
+
+    it('should return object when called with x set to negative value', function(done) {
         var obj = _module.create({ x: -1, y: 1 });
-        should.not.exist(obj);
+        should.exist(obj);
         done();
     });
 
-    it('should return null when called with y set to negative value', function(done) {
-        var obj = _module.create({ x: 1, y: -1 });
-        should.not.exist(obj);
+    it('should normalize x when called with x set to negative value', function(done) {
+        var obj = _module.create({ x: -1, y: 1 });
+        obj.xSize.should.eql(0);
         done();
     });
+
+    it('should return object when called with y set to negative value', function(done) {
+        var obj = _module.create({ x: 1, y: -1 });
+        should.exist(obj);
+        done();
+    });
+
+    it('should normalize y when called with y set to negative value', function(done) {
+        var obj = _module.create({ x: 1, y: -1 });
+        obj.ySize.should.eql(0);
+        done();
+    });
+
 });

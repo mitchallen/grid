@@ -3,30 +3,47 @@
     Author: Mitch Allen
 */
 
+/*jshint node: true */
 /*jshint esversion: 6 */
 
 "use strict";
 
-module.exports.create = function (spec) {
-    if(!spec) {
-        return null;
-    }
-    let _x = spec.x;
-    let _y = spec.y;
-    if(!_x || !_y) {
-        return null;
-    }
+module.exports.create = (spec) => {
+
+    spec = spec || {};
+
+    let _x = spec.x || 0;
+    let _y = spec.y || 0;
+
+    _x = Math.max( _x, 0 );
+    _y = Math.max( _y, 0 );
+
     if(_x < 0 || _y < 0) {
         return null;
     }
+
     var _array = [];
     while(_array.push([]) < _x);
     if(!_array) {
         return null;
     }
-    return {
-        xSize: _x,
-        ySize: _y,
+
+    var obj = {};
+
+    Object.defineProperties( obj, {
+        "xSize": {
+            writeable: false,
+            value: _x,
+            enumerable: true
+        },
+        "ySize": {
+            writeable: false,
+            value: _y,
+            enumerable: true
+        },
+    });
+
+    return Object.assign( obj, {
         log: function() { 
             console.log("size: %d, %d", _x, _y);
             console.log(_array); 
@@ -60,5 +77,5 @@ module.exports.create = function (spec) {
             }
             return _clone;
         }
-    };
+    });
 };
