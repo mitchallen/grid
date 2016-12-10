@@ -8,7 +8,71 @@
 
 "use strict";
 
-module.exports.create = (spec) => {
+var baseGrid = (spec) => {
+
+    spec = spec || {};
+
+    let _rows = spec.rows || 0;
+
+    _rows = Math.max( _rows, 0 );
+
+    var _array = [];
+    while(_array.push([]) < _rows);
+    if(!_array) {
+        return null;
+    }
+
+    var obj = {};
+
+    return Object.assign( obj, {
+        log: function() { 
+            console.log("size: %d: ", _rows );
+            console.log(_array); 
+        },
+        rowSize: function(row) {
+            if( row < 0 || row >= _rows ) {
+                return 0;
+            }
+            return _array[row].length;
+        },
+        isCell: function(a,b) {
+            var rs = this.rowSize(a);
+            return a >= 0 && a < _rows && b >= 0 && b < rs;
+        },
+        set: function(a,b,value) {
+            // problem for sparse arrays
+            // if(!this.isCell(a,b)) { return false; }
+            if(a < 0 || b < 0 ) return false;
+            _array[a][b] = value;
+            return true;
+        },
+        get: function(a,b) {
+            if(!this.isCell(a,b)) { return null; }
+            return _array[a][b];
+        },
+        fill: function(value) {
+            for(var row = 0; row < _rows; row++) {
+                var rs = this.rowSize(row);
+                for(var pos = 0; pos < rs; pos++) {
+                    _array[row][pos] = value;
+                }
+            }
+        },
+        cloneArray: function() {
+            var _clone = [];
+            while(_clone.push([]) < _rows);
+            for(var row = 0; row < _rows; row++) {
+                var rs = this.rowSize(row);
+                for(var pos = 0; pos < rs; pos++) {
+                    _clone[row][pos] = _array[row][pos];
+                }
+            }
+            return _clone;
+        }
+    });
+}
+
+var squareGrid = (spec) => {
 
     spec = spec || {};
 
@@ -18,13 +82,13 @@ module.exports.create = (spec) => {
     _x = Math.max( _x, 0 );
     _y = Math.max( _y, 0 );
 
-    var _array = [];
-    while(_array.push([]) < _x);
-    if(!_array) {
-        return null;
-    }
+    var obj = baseGrid( { rows: _x } );
 
-    var obj = {};
+    for(var row = 0; row < _x; row++) {
+        for(var col = 0; col < _y; col++) {
+            obj.set(row,col,0)
+        }
+    }
 
     Object.defineProperties( obj, {
         "xSize": {
@@ -39,39 +103,11 @@ module.exports.create = (spec) => {
         },
     });
 
-    return Object.assign( obj, {
-        log: function() { 
-            console.log("size: %d, %d", _x, _y);
-            console.log(_array); 
-        },
-        isCell(x,y) {
-            return x >= 0 && x < _x && y >= 0 && y < _y;
-        },
-        set(x,y,value) {
-            if(!this.isCell(x,y)) { return false; }
-            _array[x][y] = value;
-            return true;
-        },
-        get(x,y) {
-            if(!this.isCell(x,y)) { return null; }
-            return _array[x][y];
-        },
-        fill(value) {
-            for(var x = 0; x < _x; x++) {
-                for(var y = 0; y < _y; y++) {
-                    _array[x][y] = value;
-                }
-            }
-        },
-        cloneArray() {
-            var _clone = [];
-            while(_clone.push([]) < _x);
-            for(var x = 0; x < _x; x++) {
-                for(var y = 0; y < _y; y++) {
-                    _clone[x][y] = _array[x][y];
-                }
-            }
-            return _clone;
-        }
-    });
+    return obj;
 };
+
+module.exports = {
+    create: squareGrid,
+    Square: squareGrid,
+};
+

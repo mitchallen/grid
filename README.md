@@ -138,8 +138,6 @@ The returned value can be a number, a string or even an object.
 
 Fills the grid with whatever is passed in as __value__. Value can be a number, a string or even an object. Any existing values in the grid will be replaced with the new fill value.
 
-    let result = grid.get( i, j );
-
     let fillValue = "foo";
     
     var result = grid.fill(fillValue);
