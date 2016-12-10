@@ -18,10 +18,6 @@ module.exports.create = (spec) => {
     _x = Math.max( _x, 0 );
     _y = Math.max( _y, 0 );
 
-    if(_x < 0 || _y < 0) {
-        return null;
-    }
-
     var _array = [];
     while(_array.push([]) < _x);
     if(!_array) {
