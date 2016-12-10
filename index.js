@@ -70,12 +70,12 @@ var baseGrid = (spec) => {
             return _clone;
         }
     });
-}
+};
 
 var createGrid = (spec) => {
     console.warn("@mitchallen/grid: .create is deprecated. Use .Square instead.");
     return squareGrid( spec );
-}
+};
 
 var squareGrid = (spec) => {
 
@@ -91,7 +91,7 @@ var squareGrid = (spec) => {
 
     for(var row = 0; row < _x; row++) {
         for(var col = 0; col < _y; col++) {
-            obj.set(row,col,0)
+            obj.set(row,col,0);
         }
     }
 
@@ -132,7 +132,6 @@ var circleGrid = (spec) => {
 
     for( var i = 1; i < _rings; i++ ) {
         // console.log("row: %d", i );
-        var circumference = 2 * Math.PI * radius;
         var radius = i / _rings;
         // console.log(" ... row: %d, radius: %d", i, radius );
         var circumference = 2 * Math.PI * radius;
@@ -166,8 +165,6 @@ var circleGrid = (spec) => {
             return this.rowSize(ring);
         },
     });
-
-    return obj;
 };
 
 module.exports = {
