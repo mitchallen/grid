@@ -1,6 +1,6 @@
 {
   "name": "@mitchallen/grid",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A 2D grid that uses zero-based indexing",
   "main": "index.js",
   "scripts": {
