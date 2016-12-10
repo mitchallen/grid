@@ -16,6 +16,13 @@ You must use __npm__ __2.7.0__ or higher because of the scoped package name.
 
 ## Usage
 
+There are two forms of usage:
+
+* Square Grid
+* Circle Grid
+
+## Square Grid Usage
+
 Create a new folder and do the following at the command line:
 
     $ npm init
@@ -32,7 +39,7 @@ In the same folder create a file called __index.js__ with the content below:
     var i = xSize - 1;
     var j = ySize - 1;
     
-    var grid = gridFactory.create( { x: xSize, y: ySize } );
+    var grid = gridFactory.Square( { x: xSize, y: ySize } );
     
 	if(!grid) {
     	console.error("couldn't create grid");
@@ -62,11 +69,15 @@ An example similar to this exists on the __examples__ folder out on the repo.
   
 * * *
     
-## Methods
+## Square Methods
 
-### create( spec ) 
+### create( spec )
 
-Factory method that returns a grid object.
+The __create__ method is deprecated. Use __Square__ instead.
+
+### Square( spec )
+
+Factory method that returns a square grid object.
 
 It takes one spec parameter that must be an object with __x__ and __y__ values specifying the size of the grid.
 
@@ -74,45 +85,42 @@ The __x__ and __y__ values can not be less than one (1).
 
 The method will set xSize and ySize to 0 if no parameters are set
 
-You can call __create__ multiple times to create multiple grids.
+You can call __Square__ multiple times to create multiple grids.
 
     var gridFactory = require("@mitchallen/grid");
     
-    var grid1 = gridFactory.create( { x: 5, y: 10 } );
-    var grid2 = gridFactory.create( { x: 7, y: 20 } );
+    var grid1 = gridFactory.Square( { x: 5, y: 10 } );
+    var grid2 = gridFactory.Square( { x: 7, y: 20 } );
     
 	if(!grid1 || !grid2) ...
 	
-### grid.xSize
+### squareGrid.xSize
 
 Returns the size of the x dimension.
 
 	grid.xSize.should.eql(5);
 	
-### grid.ySize
+### squareGrid.ySize
 
 Returns the size of the y dimension.
 
 	grid.ySize.should.eql(10);
 
-### grid.ySize
 
-### grid.isCell( x, y )
+### Square grid.isCell( x, y )
 
 The __x__ and __y__ parameters should be zero-based coordinates ranging from  zero (0) to axis size minus one. 
+ 
 
-For example if the __x__ size value passed to the __create__ method is 5, then valid values for __x__ are __0__ through __4__. 
-
-The method is called internally by __set__ and __get__.
+The method is called internally by __get__.
 
     if(! grid.isCell( i, j ) ) {
     	console.error("parameters not within grid");
     }
 
+### Square grid.set( x, y, value )
 
-### grid.set( x, y, value )
-
-The __x__ and __y__ values are passed to the __isCell__ method internally for validation. If the parameters fail validation then a value of __false__ is returned. Otherwise __true__ is returned.
+The __x__ and __y__ values must be greater than zero. If the parameters fail validation then a value of __false__ is returned. Otherwise __true__ is returned.
 
 The __value__ parameter can be a number, a string or even an object.
 
@@ -120,7 +128,7 @@ The __value__ parameter can be a number, a string or even an object.
     	console.error("couldn't set grid value");
     }
 
-### grid.get( x, y )
+### Square grid.get( x, y )
 
 The __x__ and __y__ values are passed to the __isCell__ method internally for validation. If the parameters fail validation then a __*null*__ object is returned. Otherwise the value of the cell (grid location) is returned.
 
@@ -134,7 +142,7 @@ The returned value can be a number, a string or even an object.
     	console.log("grid value: ", result );
     }
 
-### grid.fill(value)
+### Square grid.fill(value)
 
 Fills the grid with whatever is passed in as __value__. Value can be a number, a string or even an object. Any existing values in the grid will be replaced with the new fill value.
 
@@ -142,7 +150,7 @@ Fills the grid with whatever is passed in as __value__. Value can be a number, a
     
     var result = grid.fill(fillValue);
     
-### grid.cloneArray()
+### Square grid.cloneArray()
 
 Returns a clone of the internal array. This is not a reference. So changes to the cloned array should not change the original.
 
@@ -169,7 +177,7 @@ Returns a clone of the internal array. This is not a reference. So changes to th
 	// Ensure that value does not alter original grid
 	grid.get(tX,tY).should.eql(gridValue);
 	
-### grid.log()
+### Square grid.log()
 
 Logs the size and contents of the internal array.
 
@@ -177,11 +185,176 @@ Logs the size and contents of the internal array.
     
 Example output:
 
-    size: 4, 5
+    size: 4
     [ [ 20, 10, 10, 10, 10 ],
       [ 10, 10, 10, 10, 10 ],
       [ 10, 10, 10, 10, 10 ],
       [ 10, 10, 10, 10, 30 ] ]
+      
+* * *
+
+## Circle Grid Usage
+
+Create a new folder and do the following at the command line:
+
+    $ npm init
+    $ npm install @mitchallen/grid-circle --save
+
+In the same folder create a file called __index.js__ with the content below:
+
+    "use strict";
+    var gridFactory = require("@mitchallen/grid");
+      
+    var grid = gridFactory.Circle( { rings: 5 } );
+    
+	var r = 2,	// ring
+		p = 4	// position
+    
+    if(! grid.isCell( r, p ) ) {
+    	console.error("parameters not within grid");
+    }
+    
+	var value = 4;
+    
+    if(! grid.set( r, p, value )) {
+    	console.error("couldn't set grid value");
+    }
+    
+    let result = grid.get( r, p );
+    
+    if(! result) {
+    	console.error("couldn't get grid value");
+    } else {
+    	console.log("grid value: ", result );
+    }
+    
+At the command line, execute the following:
+
+    $ node index.js
+    
+## Methods
+
+### Circle( spec ) 
+
+Factory method that returns a circle grid object.
+
+It takes one spec parameter that must be an object with a __rings__ value specifying the number of rings in the grid.
+
+The method will normalize __rings__ to 0 if for a missing or bad parameter.
+
+You can call __Circle__ multiple times to create multiple grids.
+
+    var gridFactory = require("@mitchallen/grid");
+    
+    var grid1 = gridFactory.Circle( { rings: 6 } );
+    var grid2 = gridFactory.Circle( { rings: 5 } );
+    
+	if(!grid1 || !grid2) ...
+	
+### Circle grid.rings
+
+Returns the ring count for the grid.
+
+	grid.rings.should.eql(5);
+	
+### Circle grid.ringSize(ring)
+
+Returns the number of cells in the ring.
+
+    let ring = 1;
+    
+    var result = grid.ringSize(ring);
+
+### Circle grid.isCell( ring, position )
+
+The __ring__ and __position__ parameters should be zero-based coordinates.
+
+Values that will return true:
+
+* __ring__: 0 to __rings__ minus one
+* __position__: 0 to __ringSize(ring)__ minus one. 
+
+For example if the __rings__  passed to the __create__ method is 5, then valid values for __ring__ are __0__ through __4__. 
+
+The method is called internally by __get__.
+
+    if(! grid.isCell( ring, position ) ) {
+    	console.error("parameters not within grid");
+    }
+
+### Circle grid.set( ring, position, value )
+
+The __ring__ and __position__ values are passed to the __isCell__ method internally for validation. If the parameters fail validation then a value of __false__ is returned. Otherwise __true__ is returned.
+
+The __value__ parameter can be a number, a string or even an object.
+
+    if(! grid.set( ring, position, value )) {
+    	console.error("couldn't set grid value");
+    }
+    
+### Circle grid.get( ring, position )
+
+The __ring__ and __position__ values are passed to the __isCell__ method internally for validation. If the parameters fail validation then a __*null*__ object is returned. Otherwise the value of the cell (grid location) is returned.
+
+The returned value can be a number, a string or even an object.
+
+    let result = grid.get( ring, position );
+    
+    if(! result) {
+    	console.error("couldn't get grid value");
+    } else {
+    	console.log("grid value: ", result );
+    }
+    
+### Circle grid.fill(value)
+
+Fills the grid with whatever is passed in as __value__. Value can be a number, a string or even an object. Any existing values in the grid will be replaced with the new fill value.
+
+    let fillValue = "foo";
+    
+    var result = grid.fill(fillValue);
+
+* * *
+
+### Circle grid.cloneArray()
+
+Returns a clone of the internal array. This is not a reference. So changes to the cloned array should not change the original.
+
+	let ring = 0;
+	let pos = 0;
+	let gridValue = 100;
+	let cloneValue = 500;
+	
+	// Set a value in the original grid
+	grid.set(ring,pos,gridValue);
+
+	// Clone the grid	
+	let arr = grid.cloneArray();
+	
+	// Verify value exists in clone
+	arr[ring][pos].should.eql(gridValue);
+	
+	// Change value in clone
+	arr[ring][pos] = cloneValue;
+	
+	// Verify new value is set in clone
+	arr[ring][pos].should.eql(cloneValue);
+	
+	// Ensure that value does not alter original grid
+	grid.get(ring,pos).should.eql(gridValue);
+	
+### Circle grid.log()
+
+Logs the size and contents of the internal array.
+
+    grid.log();
+    
+Example output:
+
+    size: 3
+    [ [ 8 ],
+      [ 8, 8, 8, 8, 8, 8 ],
+      [ 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8 ] ]
 
 * * *
 
@@ -214,6 +387,12 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * * *
 
 ## Version History
+
+#### Version 0.1.9
+
+* __Square__ now replaces __create__
+* added __create__ deprecation warning
+* Added __Circle__ grid method
 
 #### Version 0.1.8
 
