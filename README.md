@@ -388,6 +388,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.10
+
+* added experiment __Hexagon__ method
+
 #### Version 0.1.9
 
 * __Square__ now replaces __create__

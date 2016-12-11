@@ -171,5 +171,6 @@ module.exports = {
     create: createGrid,
     Square: squareGrid,
     Circle: circleGrid,
+    Hexagon: squareGrid,
 };
 
