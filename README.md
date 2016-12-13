@@ -388,6 +388,11 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.11
+
+* Refactored code
+* added __Triangle__ method for future expansion
+
 #### Version 0.1.10
 
 * added experiment __Hexagon__ method
@@ -434,16 +439,5 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 #### Version 0.1.0 
 
 * initial release
-
-
-
-
-
-
-
-
-
-
-
 
 * * *
