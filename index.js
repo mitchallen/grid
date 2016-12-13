@@ -21,6 +21,8 @@ module.exports = {
     create: createGrid,
     Square: squareGrid,
     Circle: circleGrid,
+    // For future expansion (mapped to square for now)
     Hexagon: squareGrid,
+    Triangle: squareGrid,
 };
 
