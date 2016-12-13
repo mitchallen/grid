@@ -9,7 +9,11 @@
     "//": "To use: npm test (assumes mocha installed globally)",
     "test": "mocha --recursive --timeout 20000",
     "//": "To use: npm run test-nodemon (assumes global location of mocha)",
-    "test-nodemon": "nodemon /usr/local/bin/mocha --timeout 5000",
+    "test-nodemon": "nodemon /usr/local/bin/mocha --recursive --timeout 5000",
+    "test-hexagon": "nodemon /usr/local/bin/mocha --recursive test/hexagon/ --timeout 5000",
+    "test-square": "nodemon /usr/local/bin/mocha --recursive test/square/ --timeout 5000",
+    "test-circle": "nodemon /usr/local/bin/mocha --recursive test/circle/ --timeout 5000",
+    "test-create": "nodemon /usr/local/bin/mocha --recursive test/create/ --timeout 5000",
     "test-debug": "nodemon /usr/local/bin/mocha -g '@DEBUG' --recursive --timeout 20000",
     "test-jenkins": "mocha --recursive --timeout 20000 -R xunit test/ > test-reports.xml"
   },

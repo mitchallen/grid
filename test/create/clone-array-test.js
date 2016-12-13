@@ -1,5 +1,5 @@
 /**
-    Module: @mitchallen/grid-circle
+    Module: @mitchallen/grid
       Test: clone-array-test
     Author: Mitch Allen
 */
@@ -8,9 +8,9 @@
 
 var request = require('supertest'),
     should = require('should'),
-    modulePath = "../index";
+    modulePath = "../../index";
 
-describe('Circle cloneArray method', function() {
+describe('cloneArray method', function() {
 
     var _module = null;
 
@@ -37,36 +37,37 @@ describe('Circle cloneArray method', function() {
     });
 
    it('should return a clone of the internal array', function(done) {
-        let rings = 5;
-        var obj = _module.Circle({ rings: rings });
+        let xSize = 5;
+        let ySize = 10;
+        var obj = _module.create({ x: xSize, y: ySize });
         should.exist(obj);
         let fillValue = 999;
         obj.fill(fillValue);
-        let ring = rings - 1;
-        let pos = obj.ringSize(ring) - 1;
+        let tX = xSize - 1;
+        let tY = ySize - 1;
         let tValue = 100;
-        var result = obj.set(ring,pos,tValue);
+        var result = obj.set(tX,tY,tValue);
         result.should.eql(true);
         var arr = obj.cloneArray();
-        arr[ring][pos].should.eql(tValue);
+        arr[tX][tY].should.eql(tValue);
         arr[0][0].should.eql(fillValue);
         done();
     });
 
-
     it('return should not be reference to original', function(done) {
-        let rings = 5;
-        var obj = _module.Circle({ rings: 5 });
+        let xSize = 5;
+        let ySize = 10;
+        var obj = _module.create({ x: xSize, y: ySize });
         should.exist(obj);
         let fillValue = 999;
         obj.fill(fillValue);
-        let ring = rings - 1;
-        let pos = obj.ringSize(ring) - 1;
+        let tX = xSize - 1;
+        let tY = ySize - 1;
         let tValue = 100;
-        var result = obj.set(ring,pos,tValue);
+        var result = obj.set(tX,tY,tValue);
         result.should.eql(true);
         var arr = obj.cloneArray();
-        arr[ring][pos].should.eql(tValue);
+        arr[tX][tY].should.eql(tValue);
         arr[0][0].should.eql(fillValue);
         let cValue = 5000;
         arr[0][0] = cValue;
@@ -75,76 +76,81 @@ describe('Circle cloneArray method', function() {
         done();
     });
 
-    it('should return a clone of the internal array for a one ring grid', function(done) {
-        var obj = _module.Circle({ rings: 1 });
+    it('should return a clone of the internal array for a one by one grid', function(done) {
+        var obj = _module.create({ x: 1, y: 1 });
         should.exist(obj);
-        let ring = 0;
-        let pos = 0;
+        let tX = 0;
+        let tY = 0;
         let tValue = 100;
-        var result = obj.set(ring,pos,tValue);
+        var result = obj.set(tX,tY,tValue);
         result.should.eql(true);
         var arr = obj.cloneArray();
-        arr[ring][pos].should.eql(tValue);
+        arr[tX][tY].should.eql(tValue);
         done();
     });
 
     it('should return matching string objects', function(done) {
-        let rings = 5;
-        var obj = _module.Circle({ rings: rings });
+        let xSize = 5;
+        let ySize = 10;
+        var obj = _module.create({ x: xSize, y: ySize });
         should.exist(obj);
-       let ring = rings - 1;
-        let pos = obj.ringSize(ring) - 1;
+        let tX = xSize - 1;
+        let tY = ySize - 1;
         let tValue = "foo";
-        var result = obj.set(ring,pos,tValue);
+        var result = obj.set(tX,tY,tValue);
         result.should.eql(true);
         var arr = obj.cloneArray();
-        arr[ring][pos].should.eql(tValue);
+        arr[tX][tY].should.eql(tValue);
         done();
     });
 
+
     it('should return matching objects', function(done) {
-        let rings = 5;
-        var obj = _module.Circle({ rings: rings });
+        let xSize = 5;
+        let ySize = 10;
+        var obj = _module.create({ x: xSize, y: ySize });
         should.exist(obj);
-        let ring = rings - 1;
-        let pos = obj.ringSize(ring) - 1;
+        let tX = xSize - 1;
+        let tY = ySize - 1;
         let tName = "foo";
         let tValue = { name: tName };
-        var result = obj.set(ring,pos,tValue);
+        var result = obj.set(tX,tY,tValue);
         result.should.eql(true);
         var arr = obj.cloneArray();
-        var result = arr[ring][pos];
+        var result = arr[tX][tY];
         result.should.eql(tValue);
         result.name.should.eql(tName);
         done();
     });
 
     it('should return matching date objects', function(done) {
-        let rings = 5;
-        var obj = _module.Circle({ rings: rings });
+        let xSize = 5;
+        let ySize = 10;
+        var obj = _module.create({ x: xSize, y: ySize });
         should.exist(obj);
-        let ring = rings - 1;
-        let pos = obj.ringSize(ring) - 1;
+        let tX = xSize - 1;
+        let tY = ySize - 1;
         let tValue = new Date();
-        var result = obj.set(ring,pos,tValue);
+        var result = obj.set(tX,tY,tValue);
         result.should.eql(true);
         var arr = obj.cloneArray();
-        arr[ring][pos].should.eql(tValue);
+        arr[tX][tY].should.eql(tValue);
         done();
     });
 
     it('should return matching function objects', function(done) {
-        let rings = 5;
-        var obj = _module.Circle({ rings: rings });
+        let xSize = 5;
+        let ySize = 10;
+        var obj = _module.create({ x: xSize, y: ySize });
         should.exist(obj);
-        let ring = rings - 1;
-        let pos = obj.ringSize(ring) - 1;
+        let tX = xSize - 1;
+        let tY = ySize - 1;
         let fReturn = 123;
         let tValue = function() { return fReturn; };
-        var result = obj.set(ring,pos,tValue);
+        var result = obj.set(tX,tY,tValue);
         result.should.eql(true);
         var arr = obj.cloneArray();
-        var fResult = arr[ring][pos];
+        var fResult = arr[tX][tY];
         fResult.should.eql(tValue);
         fResult().should.eql(fReturn);
         done();
