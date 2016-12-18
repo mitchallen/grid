@@ -177,6 +177,19 @@ Returns a clone of the internal array. This is not a reference. So changes to th
 	// Ensure that value does not alter original grid
 	grid.get(tX,tY).should.eql(gridValue);
 	
+	
+### Square grid.rows
+
+Number of rows in the grid.
+
+	var r = grid.rows;
+
+### Square grid.rowSize(rowIndex)
+
+	var r = grid.rowSize(1);
+
+Size of row.
+
 ### Square grid.log()
 
 Logs the size and contents of the internal array.
@@ -387,6 +400,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * * *
 
 ## Version History
+
+#### Version 0.1.12
+
+* added __rows__ method to base class
 
 #### Version 0.1.11
 

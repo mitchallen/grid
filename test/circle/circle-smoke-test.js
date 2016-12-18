@@ -55,6 +55,25 @@ describe('Circle smoke test', function() {
         done();
     });
 
+    it('rows should return ring size', function(done) {
+        let r = 6;
+        var obj = _module.Circle({ rings: r });
+        obj.rows.should.eql(r);
+        done();
+    });
+
+    it('rowSize should return ringSize', function(done) {
+        let r = 6;
+        var obj = _module.Circle({ rings: r });
+        obj.ringSize(0).should.eql(obj.rowSize(0));
+        obj.ringSize(1).should.eql(obj.rowSize(1));
+        obj.ringSize(2).should.eql(obj.rowSize(2));
+        obj.ringSize(3).should.eql(obj.rowSize(3));
+        obj.ringSize(4).should.eql(obj.rowSize(4));
+        obj.ringSize(5).should.eql(obj.rowSize(5));
+        done();
+    });
+
     it('ring size should return expected values', function(done) {
         var r = 6;
         var obj = _module.Circle( { rings: r } );

@@ -69,6 +69,22 @@ describe('Square smoke test', function() {
         done();
     });
 
+    it('rows should return size of x dimension', function(done) {
+        let sizeX = 5;
+        let sizeY = 6;
+        var obj = _module.Square({ x: sizeX, y: sizeY });
+        obj.rows.should.eql(sizeX);
+        done();
+    });
+
+    it('rowSize should return size of y dimension', function(done) {
+        let sizeX = 5;
+        let sizeY = 6;
+        var obj = _module.Square({ x: sizeX, y: sizeY });
+        obj.rowSize(0).should.eql(sizeY);
+        done();
+    });
+
     it('isCell method with valid x and y parameters should return true', function(done) {
         let sizeX = 5;
         let sizeY = 5;
