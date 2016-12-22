@@ -403,12 +403,13 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 #### Version 0.1.15
 
-* Removed dist from .npmignore so dist files can be accessed via unpkg.com
+* Fixed version history
 
 #### Version 0.1.14
 
 * added uglify and babel es2015 tasks
 * updated client example to use CDN
+* Removed dist from .npmignore so dist files can be accessed via unpkg.com
 
 #### Version 0.1.13
 
