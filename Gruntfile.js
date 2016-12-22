@@ -47,17 +47,21 @@ module.exports = function (grunt) {
                     browserifyOptions: {
                         standalone: 'GRID'
                     },
-                   transform: [
-                      ["babelify", {
-                         // loose: "all"
-                      }]
-                   ]
+                    transform: [['babelify', {presets: ['es2015']}]]
                 },
                 files: {
                    // if the source file has an extension of es6 then
                    // we change the name of the source file accordingly.
                    // The result file's extension is always .js
-                   "./dist/module.js": ["./modules/index.js"]
+                   "./dist/grid.js": ["./modules/index.js"]
+                }
+            }
+        },
+
+        uglify: {
+            my_target: {
+                files: {
+                    './dist/grid.min.js': ['./dist/grid.js']
                 }
             }
         },
@@ -65,16 +69,18 @@ module.exports = function (grunt) {
         watch: {
              scripts: {
                 files: ["./modules/*.js"],
-                tasks: ["browserify"]
+                tasks: ["browserify",'uglify']
              }
         }
     });
 
     grunt.loadNpmTasks("grunt-browserify");
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks("grunt-contrib-watch");
 
-    grunt.registerTask('default', ['jshint','watch']);
-    grunt.registerTask("build", ["browserify"]);
-    grunt.registerTask('pubinit', ['jshint','shell:pubinit']);
-    grunt.registerTask('publish', ['jshint','bump','shell:publish']);
+    grunt.registerTask('default', ['jshint','browserify','uglify']);
+    grunt.registerTask('watch', ['jshint','watch']);
+    grunt.registerTask("build", ['browserify','uglify']);
+    grunt.registerTask('pubinit', ['jshint','browserify','uglify','shell:pubinit']);
+    grunt.registerTask('publish', ['jshint','browserify','uglify','bump','shell:publish']);
 };
