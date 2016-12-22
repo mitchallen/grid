@@ -377,7 +377,7 @@ You can find examples in the repos listed below in the __examples__ folder.
 
 ### Browser Client Example
 
-You can reference a minimized client version inside and HTML script tag using one of these URL's:
+You can reference a minimized client version inside an HTML script tag using one of these URL's:
 
 * https://cdn.rawgit.com/mitchallen/grid/master/dist/grid.min.js
 * https://unpkg.com/@mitchallen/grid@0.1.15/dist/grid.min.js
