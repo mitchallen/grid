@@ -447,6 +447,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.17
+
+* main now points to dist/grid
+
 #### Version 0.1.16
 
 * Updated client example to use unpkg.com
