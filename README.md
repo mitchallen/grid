@@ -447,6 +447,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.18
+
+* added sub-modules to distribution
+
 #### Version 0.1.17
 
 * main now points to dist/grid
