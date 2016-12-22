@@ -11,7 +11,7 @@
 var baseGrid = require('./base'),
     squareGrid = require('./square'),
     circleGrid = require('./circle');
-
+ 
 var createGrid = (spec) => {
     console.warn("@mitchallen/grid: .create is deprecated. Use .Square instead.");
     return squareGrid( spec );

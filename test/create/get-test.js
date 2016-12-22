@@ -8,7 +8,8 @@
 
 var request = require('supertest'),
     should = require('should'),
-    modulePath = "../../modules/index";
+    // modulePath = "../../modules/index";
+    modulePath = "../../dist/grid";
 
 describe('get method', function() {
 

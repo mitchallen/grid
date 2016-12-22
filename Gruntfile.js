@@ -79,7 +79,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
 
     grunt.registerTask('default', ['jshint','browserify','uglify']);
-    grunt.registerTask('watch', ['jshint','watch']);
+    grunt.registerTask('monitor', ['jshint','watch']);
     grunt.registerTask("build", ['browserify','uglify']);
     grunt.registerTask('pubinit', ['jshint','browserify','uglify','shell:pubinit']);
     grunt.registerTask('publish', ['jshint','browserify','uglify','bump','shell:publish']);
