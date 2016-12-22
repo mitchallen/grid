@@ -401,6 +401,16 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.14
+
+* added uglify and babel es2015 tasks
+* updated client example to use CDN
+
+#### Version 0.1.13
+
+* added browserify task
+* created client example
+
 #### Version 0.1.12
 
 * added __rows__ method to base class
