@@ -6,7 +6,7 @@ var ySize = 10;
 var value = 100;
 var i = xSize - 1;
 var j = ySize - 1;
-var grid = gridFactory.create( { x: xSize, y: ySize } );
+var grid = gridFactory.Square( { x: xSize, y: ySize } );
 if(!grid) {
     console.error("couldn't create grid");
 }
