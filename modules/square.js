@@ -1,14 +1,14 @@
 /**
-    Module: @mitchallen/grid/lib/square.js
+    Module: @mitchallen/grid/../square.js
     Author: Mitch Allen
 */
 
-/*jshint node: true */
+/*jshint node: true */ 
 /*jshint esversion: 6 */
 
 "use strict";
 
-var baseGrid = require('../lib/base');
+var baseGrid = require('./base');
 
 module.exports = (spec) => {
 
@@ -26,7 +26,7 @@ module.exports = (spec) => {
         for(var col = 0; col < _y; col++) {
             obj.set(row,col,0);
         }
-    }
+    } 
 
     Object.defineProperties( obj, {
         "xSize": {

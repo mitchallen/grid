@@ -8,7 +8,7 @@
 
 var request = require('supertest'),
     should = require('should'),
-    modulePath = "../../index";
+    modulePath = "../../modules/index";
 
 describe('Triangle smoke test', function() {
 

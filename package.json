@@ -2,13 +2,11 @@
   "name": "@mitchallen/grid",
   "version": "0.1.12",
   "description": "A 2D grid that uses zero-based indexing",
-  "main": "index.js",
+  "main": "modules/index.js",
   "scripts": {
-    "//": "To use: npm start (useful if not a module)",
-    "start": "node index.js",
-    "//": "To use: npm test (assumes mocha installed globally)",
-    "test": "mocha --recursive --timeout 20000",
     "//": "To use: npm run test-nodemon (assumes global location of mocha)",
+    "start": "node index.js",
+    "test": "mocha --recursive --timeout 20000",
     "test-nodemon": "nodemon /usr/local/bin/mocha --recursive --timeout 5000",
     "test-hexagon": "nodemon /usr/local/bin/mocha --recursive test/hexagon/ --timeout 5000",
     "test-square": "nodemon /usr/local/bin/mocha --recursive test/square/ --timeout 5000",
@@ -20,18 +18,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/mitchallen/grid.git"
-  },
-  "repository": {
-    "type": "git",
     "url": "https://github.com/mitchallen/grid.git"
   },
   "author": "Mitch Allen <npm@mitchallen.com> (http://mitchallen.com)",
   "license": "ISC",
   "devDependencies": {
+    "babelify": "^7.3.0",
     "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
     "grunt-bump": "^0.8.0",
     "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
     "grunt-shell": "^1.3.0",
     "should": "^10.0.0",
     "supertest": "^2.0.0"

@@ -1,5 +1,5 @@
 /**
-    Module: @mitchallen/grid/lib/square.js
+    Module: @mitchallen/grid/../square.js
     Author: Mitch Allen
 */
 
@@ -8,7 +8,7 @@
 
 "use strict";
 
-var baseGrid = require('../lib/base');
+var baseGrid = require('./base');
 
 module.exports = (spec) => {
 

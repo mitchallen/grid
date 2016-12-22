@@ -1,5 +1,5 @@
 /**
-    Module: @mitchallen/grid/lib/base.js
+    Module: @mitchallen/grid/../base.js
     Author: Mitch Allen
 */
 
