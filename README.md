@@ -375,6 +375,52 @@ Example output:
 
 You can find examples in the repos listed below in the __examples__ folder.
 
+### Browser Client Example
+
+You can reference a minimized client version inside and HTML script tag using one of these URL's:
+
+* https://cdn.rawgit.com/mitchallen/grid/master/dist/grid.min.js
+* https://unpkg.com/@mitchallen/grid@0.1.15/dist/grid.min.js
+
+The __rawgit.com__ URL will pull the latest from master in GitHub.
+
+The __unpkg.com__ URL will pull based on the version in npmjs.com.
+
+See http://rawgit.com and https://unpkg.com for other ways to retrieve the file. 
+
+The factory function can be retrieved from window.GRID:
+
+    var factory = window.GRID;
+    var xSize = 10, ySize = 5;
+    var sg = factory.Square( { x: xSize, y: ySize } );
+
+Example:
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Grid Example</title>
+        <meta name="description" content="Grid Example">
+        <!-- either cdn should work 
+        <script src="https://cdn.rawgit.com/mitchallen/grid/master/dist/grid.min.js"></script>
+    -->
+        <script src="https://unpkg.com/@mitchallen/grid@0.1.15/dist/grid.min.js"></script>
+        <script>
+          var factory = window.GRID;
+          console.log(factory);
+          var xSize = 10, ySize = 5;
+          var sg = factory.Square( { x: xSize, y: ySize } );
+          sg.log(); 
+        </script>
+      </head>
+      <body>
+        <h1>Grid Example</h1>
+      </body>
+    </html>
+
+
+
 * * *
 
 ## Testing
@@ -400,6 +446,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * * *
 
 ## Version History
+
+#### Version 0.1.16
+
+* Updated client example to use unpkg.com
 
 #### Version 0.1.15
 
