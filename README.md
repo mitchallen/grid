@@ -379,8 +379,10 @@ You can find examples in the repos listed below in the __examples__ folder.
 
 You can reference a minimized client version inside an HTML script tag using one of these URL's:
 
-* https://cdn.rawgit.com/mitchallen/grid/master/dist/grid.min.js
-* https://unpkg.com/@mitchallen/grid@0.1.15/dist/grid.min.js
+* https://cdn.rawgit.com/mitchallen/grid/v0.1.19/dist/grid.min.js
+* https://unpkg.com/@mitchallen/grid@0.1.19/dist/grid.min.js
+
+Adjust the URL's depending upon what version is available
 
 The __rawgit.com__ URL will pull the latest from master in GitHub.
 
@@ -403,9 +405,9 @@ Example:
         <title>Grid Example</title>
         <meta name="description" content="Grid Example">
         <!-- either cdn should work 
-        <script src="https://cdn.rawgit.com/mitchallen/grid/master/dist/grid.min.js"></script>
+        <script src="https://cdn.rawgit.com/mitchallen/grid/v0.1.19/dist/grid.min.js"></script>
     -->
-        <script src="https://unpkg.com/@mitchallen/grid@0.1.15/dist/grid.min.js"></script>
+        <script src="https://unpkg.com/@mitchallen/grid@0.1.19/dist/grid.min.js"></script>
         <script>
           var factory = window.GRID;
           console.log(factory);
@@ -446,6 +448,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * * *
 
 ## Version History
+
+#### Version 0.1.20
+
+* Updated CDN URL
 
 #### Version 0.1.19
 
