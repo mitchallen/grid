@@ -451,7 +451,9 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 #### Version 0.1.22
 
-* square module now uses @mitchallen/git-core
+* square and cirlce modules now uses @mitchallen/git-core
+* remove modules/base.js which is replaced by grid-core
+
 
 #### Version 0.1.21
 
