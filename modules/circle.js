@@ -1,5 +1,5 @@
 /**
-    Module: @mitchallen/grid/../square.js
+    Module: @mitchallen/grid/modules/circle.js
     Author: Mitch Allen
 */
 
@@ -8,7 +8,7 @@
 
 "use strict";
 
-var baseGrid = require('./base');
+var coreGrid = require('@mitchallen/grid-core');
 
 module.exports = (spec) => {
 
@@ -18,7 +18,7 @@ module.exports = (spec) => {
 
     _rings = Math.max( _rings, 0 );
 
-    var obj = baseGrid( { rows: _rings } );
+    var obj = coreGrid.create( { rows: _rings } );
 
     // prepare grid
 
