@@ -8,8 +8,10 @@
 
 "use strict";
 
-var squareGrid = require('./square'),
+var squareGrid = require('@mitchallen/grid-square').create,
     circleGrid = require('./circle');
+
+console.log(squareGrid)
  
 var createGrid = (spec) => {
     console.warn("@mitchallen/grid: .create is deprecated. Use .Square instead.");

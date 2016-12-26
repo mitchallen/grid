@@ -421,8 +421,6 @@ Example:
       </body>
     </html>
 
-
-
 * * *
 
 ## Testing
