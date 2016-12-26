@@ -447,11 +447,14 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.23
+
+* replaced internal square with __@mitchallen/grid-square__
+
 #### Version 0.1.22
 
 * square and cirlce modules now uses @mitchallen/git-core
 * remove modules/base.js which is replaced by grid-core
-
 
 #### Version 0.1.21
 
