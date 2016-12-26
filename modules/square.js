@@ -1,5 +1,5 @@
 /**
-    Module: @mitchallen/grid/../square.js
+    Module: @mitchallen/grid/modules/square.js
     Author: Mitch Allen
 */
 
@@ -8,7 +8,7 @@
 
 "use strict";
 
-var baseGrid = require('./base');
+var coreGrid = require('@mitchallen/grid-core');
 
 module.exports = (spec) => {
 
@@ -20,7 +20,7 @@ module.exports = (spec) => {
     _x = Math.max( _x, 0 );
     _y = Math.max( _y, 0 );
 
-    var obj = baseGrid( { rows: _x } );
+    var obj = coreGrid.create( { rows: _x } );
 
     for(var row = 0; row < _x; row++) {
         for(var col = 0; col < _y; col++) {

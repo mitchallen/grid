@@ -8,8 +8,7 @@
 
 "use strict";
 
-var baseGrid = require('./base'),
-    squareGrid = require('./square'),
+var squareGrid = require('./square'),
     circleGrid = require('./circle');
  
 var createGrid = (spec) => {

@@ -36,5 +36,8 @@
     "grunt-shell": "^1.3.0",
     "should": "^10.0.0",
     "supertest": "^2.0.0"
+  },
+  "dependencies": {
+    "@mitchallen/grid-core": "^0.1.3"
   }
 }
