@@ -449,6 +449,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.22
+
+* square module now uses @mitchallen/git-core
+
 #### Version 0.1.21
 
 * Client must now use __window.MitchAllen.Grid__ to reference factory function.
