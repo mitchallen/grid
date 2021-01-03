@@ -40,7 +40,7 @@ describe('fill method', function() {
     it('should fill grid with integer when called with integer', function(done) {
         let xSize = 5;
         let ySize = 10;
-        var obj = _module.create({ x: xSize, y: ySize });
+        var obj = _module.Square({ x: xSize, y: ySize });
         should.exist(obj);
         let fillValue = 999;
         var result = obj.fill(fillValue);
@@ -55,7 +55,7 @@ describe('fill method', function() {
     it('should not change grid when called with no argument', function(done) {
         let xSize = 5;
         let ySize = 10;
-        var obj = _module.create({ x: xSize, y: ySize });
+        var obj = _module.Square({ x: xSize, y: ySize });
         should.exist(obj);
         var result = obj.fill();
         for(var x = 0; x < xSize; x++ ) {
@@ -69,7 +69,7 @@ describe('fill method', function() {
     it('should override existing values', function(done) {
         let xSize = 5;
         let ySize = 10;
-        var obj = _module.create({ x: xSize, y: ySize });
+        var obj = _module.Square({ x: xSize, y: ySize });
         should.exist(obj);
         let tX = 3;
         let tY = 4;
@@ -84,7 +84,7 @@ describe('fill method', function() {
     it('should fill grid with string when called with a string', function(done) {
         let xSize = 5;
         let ySize = 10;
-        var obj = _module.create({ x: xSize, y: ySize });
+        var obj = _module.Square({ x: xSize, y: ySize });
         should.exist(obj);
         let fillValue = "foo";
         var result = obj.fill(fillValue);
@@ -99,7 +99,7 @@ describe('fill method', function() {
     it('should fill grid with object when called with a object', function(done) {
         let xSize = 5;
         let ySize = 10;
-        var obj = _module.create({ x: xSize, y: ySize });
+        var obj = _module.Square({ x: xSize, y: ySize });
         should.exist(obj);
         let tName = "foo";
         let fillValue = { name: tName };

@@ -40,9 +40,9 @@ describe('multiple grids', function() {
     it('should not interere with each other', function(done) {
         let sizeX = 20;
         let sizeY = 10;
-        var grid0 = _module.create({ x: sizeX, y: sizeY });
+        var grid0 = _module.Square({ x: sizeX, y: sizeY });
         should.exist(grid0);
-        var grid1 = _module.create({ x: sizeX, y: sizeY });
+        var grid1 = _module.Square({ x: sizeX, y: sizeY });
         should.exist(grid1);
         let tX = sizeX-1;
         let tY = sizeY-1;

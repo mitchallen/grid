@@ -30,6 +30,7 @@ Create a new folder and do the following at the command line:
 
 In the same folder create a file called __index.js__ with the content below:
 
+```js
     "use strict";
     var gridFactory = require("@mitchallen/grid");
     
@@ -60,6 +61,7 @@ In the same folder create a file called __index.js__ with the content below:
     } else {
     	console.log("grid value: ", result );
     }
+```
     
 At the command line, execute the following:
 

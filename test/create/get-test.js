@@ -38,7 +38,7 @@ describe('get method', function() {
     });
 
     it('should return value when called with valid x and y parameters', function(done) {
-        var obj = _module.create({ x: 1, y: 1 });
+        var obj = _module.Square({ x: 1, y: 1 });
         should.exist(obj);
         let tX = 0;
         let tY = 0;
@@ -53,7 +53,7 @@ describe('get method', function() {
     it('should return value when called with x and y parameters set to size minus one', function(done) {
         let sizeX = 20;
         let sizeY = 10;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         should.exist(obj);
         let tX = sizeX-1;
         let tY = sizeY-1;
@@ -68,7 +68,7 @@ describe('get method', function() {
     it('should return negative value', function(done) {
         let sizeX = 20;
         let sizeY = 10;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         should.exist(obj);
         let tX = sizeX-1;
         let tY = sizeY-1;
@@ -83,7 +83,7 @@ describe('get method', function() {
     it('should return string', function(done) {
         let sizeX = 20;
         let sizeY = 10;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         should.exist(obj);
         let tX = sizeX-1;
         let tY = sizeY-1;
@@ -98,7 +98,7 @@ describe('get method', function() {
     it('should return object', function(done) {
         let sizeX = 20;
         let sizeY = 10;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         should.exist(obj);
         let tX = sizeX-1;
         let tY = sizeY-1;
@@ -116,7 +116,7 @@ describe('get method', function() {
     it('should return date', function(done) {
         let sizeX = 20;
         let sizeY = 10;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         should.exist(obj);
         let tX = sizeX-1;
         let tY = sizeY-1;
@@ -131,7 +131,7 @@ describe('get method', function() {
     it('should return function', function(done) {
         let sizeX = 20;
         let sizeY = 10;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         should.exist(obj);
         let tX = sizeX-1;
         let tY = sizeY-1;

@@ -38,7 +38,7 @@ describe('set method', function() {
     });
 
     it('should return true when called with valid parameters', function(done) {
-        var obj = _module.create({ x: 1, y: 1 });
+        var obj = _module.Square({ x: 1, y: 1 });
         should.exist(obj);
         var result = obj.set(0,0,5);
         result.should.eql(true);
@@ -46,7 +46,7 @@ describe('set method', function() {
     });
 
     it('should return second value when called twice with same x and y values', function(done) {
-        var obj = _module.create({ x: 1, y: 1 });
+        var obj = _module.Square({ x: 1, y: 1 });
         should.exist(obj);
         let tX = 0;
         let tY = 0;
@@ -63,7 +63,7 @@ describe('set method', function() {
     it('should return true when called with x and y parameters set to size minus one', function(done) {
         let sizeX = 10;
         let sizeY = 20;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         should.exist(obj);
         var result = obj.set(sizeX-1,sizeY-1,5);
         result.should.eql(true);
@@ -71,7 +71,7 @@ describe('set method', function() {
     });
 
     it('should return true when called with negative cell value', function(done) {
-        var obj = _module.create({ x: 1, y: 1 });
+        var obj = _module.Square({ x: 1, y: 1 });
         should.exist(obj);
         var result = obj.set(0,0,-1);
         result.should.eql(true);
@@ -79,7 +79,7 @@ describe('set method', function() {
     });
 
     it('should return true when called with string value', function(done) {
-        var obj = _module.create({ x: 1, y: 1 });
+        var obj = _module.Square({ x: 1, y: 1 });
         should.exist(obj);
         var result = obj.set(0,0,"foo");
         result.should.eql(true);
@@ -87,7 +87,7 @@ describe('set method', function() {
     });
 
     it('should return true when called with object value', function(done) {
-        var obj = _module.create({ x: 1, y: 1 });
+        var obj = _module.Square({ x: 1, y: 1 });
         should.exist(obj);
         var result = obj.set(0,0,{ name: "foo" });
         result.should.eql(true);

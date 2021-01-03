@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@mitchallen/grid": "^0.1.13"
+    "@mitchallen/grid": "^0.1.24"
   }
 }

@@ -42,14 +42,14 @@ describe('Square smoke test', function() {
         done();
     });
 
-    it('create method with no spec should return valid object', function(done) {
-        var obj = _module.create();
+    it('.Square method with no spec should return valid object', function(done) {
+        var obj = _module.Square();
         should.exist(obj);
         done();
     });
 
-    it('create method with valid x and y parameters should return object', function(done) {
-        var obj = _module.create({ x: 5, y: 5 });
+    it('.Square method with valid x and y parameters should return object', function(done) {
+        var obj = _module.Square({ x: 5, y: 5 });
         should.exist(obj);
         done();
     });
@@ -57,7 +57,7 @@ describe('Square smoke test', function() {
     it('xSize should return size of x dimension', function(done) {
         let sizeX = 5;
         let sizeY = 6;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         obj.xSize.should.eql(sizeX);
         done();
     });
@@ -65,7 +65,7 @@ describe('Square smoke test', function() {
     it('ySize should return size of y dimension', function(done) {
         let sizeX = 5;
         let sizeY = 6;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         obj.ySize.should.eql(sizeY);
         done();
     });
@@ -73,7 +73,7 @@ describe('Square smoke test', function() {
     it('rows should return size of x dimension', function(done) {
         let sizeX = 5;
         let sizeY = 6;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         obj.rows.should.eql(sizeX);
         done();
     });
@@ -81,7 +81,7 @@ describe('Square smoke test', function() {
     it('rowSize should return size of y dimension', function(done) {
         let sizeX = 5;
         let sizeY = 6;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         obj.rowSize(0).should.eql(sizeY);
         done();
     });
@@ -89,7 +89,7 @@ describe('Square smoke test', function() {
     it('isCell method with valid x and y parameters should return true', function(done) {
         let sizeX = 5;
         let sizeY = 5;
-        var obj = _module.create({ x: sizeX, y: sizeY });
+        var obj = _module.Square({ x: sizeX, y: sizeY });
         should.exist(obj);
         var result = obj.isCell(sizeX-1, sizeY-1);
         result.should.eql(true);
@@ -97,7 +97,7 @@ describe('Square smoke test', function() {
     });
 
     it('set method with valid parameter should return true', function(done) {
-        var obj = _module.create({ x: 1, y: 1 });
+        var obj = _module.Square({ x: 1, y: 1 });
         should.exist(obj);
         var result = obj.set(0,0,5);
         result.should.eql(true);
@@ -105,7 +105,7 @@ describe('Square smoke test', function() {
     });
 
     it('get method with valid parameter should return value', function(done) {
-        var obj = _module.create({ x: 1, y: 1 });
+        var obj = _module.Square({ x: 1, y: 1 });
         should.exist(obj);
         let tX = 0;
         let tY = 0;
@@ -120,7 +120,7 @@ describe('Square smoke test', function() {
     it('fill method with valid integer should fill grid with integer', function(done) {
         let xSize = 5;
         let ySize = 10;
-        var obj = _module.create({ x: xSize, y: ySize });
+        var obj = _module.Square({ x: xSize, y: ySize });
         should.exist(obj);
         let tValue = 999;
         var result = obj.fill(tValue);
@@ -133,7 +133,7 @@ describe('Square smoke test', function() {
     });
 
    it('cloneArray method should return a clone of the internal array', function(done) {
-        var obj = _module.create({ x: 1, y: 1 });
+        var obj = _module.Square({ x: 1, y: 1 });
         should.exist(obj);
         let tX = 0;
         let tY = 0;
@@ -148,7 +148,7 @@ describe('Square smoke test', function() {
     it('log method should not throw exception', function(done) {
         let xSize = 4;
         let ySize = 5;
-        var grid = _module.create({ x: xSize, y: ySize });
+        var grid = _module.Square({ x: xSize, y: ySize });
         should.exist(grid);
         grid.fill(10)
         grid.set(0,0,20);

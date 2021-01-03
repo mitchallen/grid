@@ -10,11 +10,11 @@
 
 var coreGrid = require('@mitchallen/grid-core');
 
-module.exports = (spec) => {
+module.exports = (spec = {}) => {
 
-    spec = spec || {};
-
-    let _rings = spec.rings || 0;
+    let {
+      rings: _rings = 0,
+    } = spec;
 
     _rings = Math.max( _rings, 0 );
 
