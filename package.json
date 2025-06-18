@@ -24,6 +24,7 @@
   "author": "Mitch Allen <npm@mitchallen.com> (http://mitchallen.com)",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.27.2",
     "babelify": "^10.0.0",
     "browserify-derequire": "^0.9.4",
     "grunt": "^1.0.1",
