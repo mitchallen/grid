@@ -41,5 +41,11 @@
   "dependencies": {
     "@mitchallen/grid-core": "^0.1.10",
     "@mitchallen/grid-square": "^0.1.9"
+  },
+  "overrides": {
+    "braces": ">=3.0.3",
+    "micromatch": ">=4.0.8",
+    "trim-newlines": ">=3.0.1",
+    "yargs-parser": ">=5.0.1"
   }
 }

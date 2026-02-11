@@ -238,60 +238,55 @@ module.exports.create = function () {
 "use strict";
 
 var coreGrid = _dereq_('@mitchallen/grid-core');
-
 module.exports = function () {
-    var spec = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var spec = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var _spec$rings = spec.rings,
+    _rings = _spec$rings === void 0 ? 0 : _spec$rings;
+  _rings = Math.max(_rings, 0);
+  var obj = coreGrid.create({
+    rows: _rings
+  });
 
-    var _spec$rings = spec.rings,
-        _rings = _spec$rings === undefined ? 0 : _spec$rings;
+  // prepare grid
 
-    _rings = Math.max(_rings, 0);
+  // Single cell on row 0.
+  obj.set(0, 0, 0);
 
-    var obj = coreGrid.create({ rows: _rings });
-
-    // prepare grid
-
-    // Single cell on row 0.
-    obj.set(0, 0, 0);
-
-    // rings are rows
-    var rowHeight = 1.0 / _rings;
-
-    for (var i = 1; i < _rings; i++) {
-        // console.log("row: %d", i );
-        var radius = i / _rings;
-        // console.log(" ... row: %d, radius: %d", i, radius );
-        var circumference = 2 * Math.PI * radius;
-        // console.log(" ... circumference:", circumference );
-        var previousCount = obj.rowSize(i - 1);
-        // console.log(" ... previousCount:", previousCount );
-        var estimatedCellWidth = circumference / previousCount;
-        // console.log(" ... estimatedCellWidth:", estimatedCellWidth );
-        var ratio = Math.round(estimatedCellWidth / rowHeight);
-        // console.log(" ... ratio:", ratio );
-        var cells = previousCount * ratio;
-        // console.log(" ... cells:", cells );
-        for (var j = 0; j < cells; j++) {
-            // _array[i].push(0);
-            obj.set(i, j, 0);
-        }
-        // console.log(_array[i]);
+  // rings are rows
+  var rowHeight = 1.0 / _rings;
+  for (var i = 1; i < _rings; i++) {
+    // console.log("row: %d", i );
+    var radius = i / _rings;
+    // console.log(" ... row: %d, radius: %d", i, radius );
+    var circumference = 2 * Math.PI * radius;
+    // console.log(" ... circumference:", circumference );
+    var previousCount = obj.rowSize(i - 1);
+    // console.log(" ... previousCount:", previousCount );
+    var estimatedCellWidth = circumference / previousCount;
+    // console.log(" ... estimatedCellWidth:", estimatedCellWidth );
+    var ratio = Math.round(estimatedCellWidth / rowHeight);
+    // console.log(" ... ratio:", ratio );
+    var cells = previousCount * ratio;
+    // console.log(" ... cells:", cells );
+    for (var j = 0; j < cells; j++) {
+      // _array[i].push(0);
+      obj.set(i, j, 0);
     }
-
-    Object.defineProperties(obj, {
-        "rings": {
-            writeable: false,
-            value: _rings,
-            enumerable: true
-        }
-    });
-
-    return Object.assign(obj, {
-        ringSize: function ringSize(ring) {
-            // rings equal rows in base class
-            return this.rowSize(ring);
-        }
-    });
+    // console.log(_array[i]);
+  }
+  Object.defineProperties(obj, {
+    "rings": {
+      writeable: false,
+      value: _rings,
+      enumerable: true
+    }
+  });
+  return Object.assign(obj, {
+    ringSize: function ringSize(ring) {
+      // rings equal rows in base class
+      return this.rowSize(ring);
+    }
+  });
 };
 
 },{"@mitchallen/grid-core":1}],4:[function(_dereq_,module,exports){
@@ -306,20 +301,18 @@ module.exports = function () {
 "use strict";
 
 var squareGrid = _dereq_('@mitchallen/grid-square').create,
-    circleGrid = _dereq_('./circle');
-
+  circleGrid = _dereq_('./circle');
 var createGrid = function createGrid(spec) {
-    console.warn("@mitchallen/grid: .create is deprecated. Use .Square instead.");
-    return squareGrid(spec);
+  console.warn("@mitchallen/grid: .create is deprecated. Use .Square instead.");
+  return squareGrid(spec);
 };
-
 module.exports = {
-    create: createGrid,
-    Square: squareGrid,
-    Circle: circleGrid,
-    // For future expansion (mapped to square for now)
-    Hexagon: squareGrid,
-    Triangle: squareGrid
+  create: createGrid,
+  Square: squareGrid,
+  Circle: circleGrid,
+  // For future expansion (mapped to square for now)
+  Hexagon: squareGrid,
+  Triangle: squareGrid
 };
 
 },{"./circle":3,"@mitchallen/grid-square":2}]},{},[4])(4)
