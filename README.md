@@ -425,12 +425,43 @@ Example:
 
 * * *
 
-## Testing
+## Development
+
+### Build
+
+Produces browser bundles in `dist/` using [esbuild](https://esbuild.github.io/):
+
+    $ npm run build
+
+Output files:
+
+* `dist/grid.js` — IIFE bundle (ES2017, unminified)
+* `dist/grid.min.js` — IIFE bundle (ES2017, minified, referenced by the `browser` field in `package.json`)
+
+### Watch mode
+
+Rebuilds `dist/grid.js` automatically when source files change:
+
+    $ npm run watch
+
+### Lint
+
+    $ npm run lint
+
+### Testing
 
 To test, go to the root folder and type (sans __$__):
 
     $ npm test
-   
+
+Tests use the Node.js built-in test runner (`node:test`) and `node:assert` — no external test framework required. Individual suites:
+
+    $ npm run test-square
+    $ npm run test-circle
+    $ npm run test-hexagon
+    $ npm run test-triangle
+    $ npm run test-create
+
 * * *
  
 ## Repo(s)
@@ -443,11 +474,17 @@ To test, go to the root folder and type (sans __$__):
 ## Contributing
 
 In lieu of a formal style guide, take care to maintain the existing coding style.
-Add unit tests for any new or changed functionality. Lint and test your code.
+Add unit tests for any new or changed functionality. Lint (`npm run lint`) and test (`npm test`) your code before submitting.
 
 * * *
 
 ## Version History
+
+#### Version 0.1.25
+
+* Replaced grunt + browserify + babel + mocha toolchain with esbuild and Node.js built-in test runner
+* Eliminated all npm audit vulnerabilities (34 → 0)
+* `main` now points to `src/index.js`; `browser` field points to `dist/grid.min.js`
 
 #### Version 0.1.23
 
