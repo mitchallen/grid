@@ -6,154 +6,136 @@
 
 "use strict";
 
-var request = require('supertest'),
-    should = require('should'),
-    // modulePath = "../../modules/index";
-    modulePath = "../../src/index";
+const { describe, it, before, after, beforeEach, afterEach } = require('node:test');
+const assert = require('node:assert');
+const modulePath = "../../src/index";
 
 describe('Square smoke test', function() {
 
     var _module = null;
 
-    before(function(done) {
+    before(function() {
         // Call before all tests
         delete require.cache[require.resolve(modulePath)];
         _module = require(modulePath);
-        done();
     });
 
-    after(function(done) {
+    after(function() {
         // Call after all tests
-        done();
     });
 
-    beforeEach(function(done) {
+    beforeEach(function() {
         // Call before each test
-        done();
     });
 
-    afterEach(function(done) {
+    afterEach(function() {
         // Call after eeach test
-        done();
     });
 
-    it('module should exist', function(done) {
-        should.exist(_module);
-        done();
+    it('module should exist', function() {
+        assert.ok(_module != null);
     });
 
-    it('.Square method with no spec should return valid object', function(done) {
+    it('.Square method with no spec should return valid object', function() {
         var obj = _module.Square();
-        should.exist(obj);
-        done();
+        assert.ok(obj != null);
     });
 
-    it('.Square method with valid x and y parameters should return object', function(done) {
+    it('.Square method with valid x and y parameters should return object', function() {
         var obj = _module.Square({ x: 5, y: 5 });
-        should.exist(obj);
-        done();
+        assert.ok(obj != null);
     });
 
-    it('xSize should return size of x dimension', function(done) {
+    it('xSize should return size of x dimension', function() {
         let sizeX = 5;
         let sizeY = 6;
         var obj = _module.Square({ x: sizeX, y: sizeY });
-        obj.xSize.should.eql(sizeX);
-        done();
+        assert.deepStrictEqual(obj.xSize, sizeX);
     });
 
-    it('ySize should return size of y dimension', function(done) {
+    it('ySize should return size of y dimension', function() {
         let sizeX = 5;
         let sizeY = 6;
         var obj = _module.Square({ x: sizeX, y: sizeY });
-        obj.ySize.should.eql(sizeY);
-        done();
+        assert.deepStrictEqual(obj.ySize, sizeY);
     });
 
-    it('rows should return size of x dimension', function(done) {
+    it('rows should return size of x dimension', function() {
         let sizeX = 5;
         let sizeY = 6;
         var obj = _module.Square({ x: sizeX, y: sizeY });
-        obj.rows.should.eql(sizeX);
-        done();
+        assert.deepStrictEqual(obj.rows, sizeX);
     });
 
-    it('rowSize should return size of y dimension', function(done) {
+    it('rowSize should return size of y dimension', function() {
         let sizeX = 5;
         let sizeY = 6;
         var obj = _module.Square({ x: sizeX, y: sizeY });
-        obj.rowSize(0).should.eql(sizeY);
-        done();
+        assert.deepStrictEqual(obj.rowSize(0), sizeY);
     });
 
-    it('isCell method with valid x and y parameters should return true', function(done) {
+    it('isCell method with valid x and y parameters should return true', function() {
         let sizeX = 5;
         let sizeY = 5;
         var obj = _module.Square({ x: sizeX, y: sizeY });
-        should.exist(obj);
+        assert.ok(obj != null);
         var result = obj.isCell(sizeX-1, sizeY-1);
-        result.should.eql(true);
-        done();
+        assert.deepStrictEqual(result, true);
     });
 
-    it('set method with valid parameter should return true', function(done) {
+    it('set method with valid parameter should return true', function() {
         var obj = _module.Square({ x: 1, y: 1 });
-        should.exist(obj);
+        assert.ok(obj != null);
         var result = obj.set(0,0,5);
-        result.should.eql(true);
-        done();
+        assert.deepStrictEqual(result, true);
     });
 
-    it('get method with valid parameter should return value', function(done) {
+    it('get method with valid parameter should return value', function() {
         var obj = _module.Square({ x: 1, y: 1 });
-        should.exist(obj);
+        assert.ok(obj != null);
         let tX = 0;
         let tY = 0;
         let tValue = 5;
         var condition = obj.set(tX,tY,tValue);
-        condition.should.eql(true);
+        assert.deepStrictEqual(condition, true);
         var result = obj.get(tX,tY);
-        result.should.eql(tValue);
-        done();
+        assert.deepStrictEqual(result, tValue);
     });
 
-    it('fill method with valid integer should fill grid with integer', function(done) {
+    it('fill method with valid integer should fill grid with integer', function() {
         let xSize = 5;
         let ySize = 10;
         var obj = _module.Square({ x: xSize, y: ySize });
-        should.exist(obj);
+        assert.ok(obj != null);
         let tValue = 999;
         var result = obj.fill(tValue);
         for(var x = 0; x < xSize; x++ ) {
             for(var y = 0; y < ySize; y++ ) {
-                obj.get(x,y).should.eql(tValue);
+                assert.deepStrictEqual(obj.get(x,y), tValue);
             }
         }
-        done();
     });
 
-   it('cloneArray method should return a clone of the internal array', function(done) {
+   it('cloneArray method should return a clone of the internal array', function() {
         var obj = _module.Square({ x: 1, y: 1 });
-        should.exist(obj);
+        assert.ok(obj != null);
         let tX = 0;
         let tY = 0;
         let tValue = 100;
         var result = obj.set(tX,tY,tValue);
-        result.should.eql(true);
+        assert.deepStrictEqual(result, true);
         var arr = obj.cloneArray();
-        arr[tX][tY].should.eql(tValue);
-        done();
+        assert.deepStrictEqual(arr[tX][tY], tValue);
     });
 
-    it('log method should not throw exception', function(done) {
+    it('log method should not throw exception', function() {
         let xSize = 4;
         let ySize = 5;
         var grid = _module.Square({ x: xSize, y: ySize });
-        should.exist(grid);
+        assert.ok(grid != null);
         grid.fill(10)
         grid.set(0,0,20);
         grid.set(xSize - 1, ySize - 1,30);
         grid.log();
-        done();
     });
 });

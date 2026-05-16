@@ -8,15 +8,14 @@
     "start": "node src/index.js",
     "build": "node build.js",
     "lint": "eslint src/",
-    "test": "node build.js && mocha --recursive --timeout 20000",
+    "test": "node build.js && node --test $(find test -name '*-test.js' | sort)",
     "watch": "node build.js --watch",
-    "test-square": "mocha --recursive test/square/ --timeout 5000",
-    "test-circle": "mocha --recursive test/circle/ --timeout 5000",
-    "test-hexagon": "mocha --recursive test/hexagon/ --timeout 5000",
-    "test-triangle": "mocha --recursive test/triangle/ --timeout 5000",
-    "test-create": "mocha --recursive test/create/ --timeout 5000",
-    "test-debug": "mocha -g '@DEBUG' --recursive --timeout 20000",
-    "test-jenkins": "mocha --recursive --timeout 20000 -R xunit test/ > test-reports.xml",
+    "test-square": "node --test $(find test/square -name '*-test.js')",
+    "test-circle": "node --test $(find test/circle -name '*-test.js')",
+    "test-hexagon": "node --test $(find test/hexagon -name '*-test.js')",
+    "test-triangle": "node --test $(find test/triangle -name '*-test.js')",
+    "test-create": "node --test $(find test/create -name '*-test.js')",
+    "test-jenkins": "node --test $(find test -name '*-test.js' | sort) > test-reports.tap",
     "pubinit": "node build.js && npm publish --access public",
     "publish-pkg": "node build.js && npm version patch && git push --follow-tags && npm publish"
   },
@@ -29,10 +28,7 @@
   "devDependencies": {
     "esbuild": "^0.25.0",
     "eslint": "^9.0.0",
-    "globals": "^16.0.0",
-    "mocha": "^11.7.5",
-    "should": "^10.0.0",
-    "supertest": "^7.1.1"
+    "globals": "^16.0.0"
   },
   "dependencies": {
     "@mitchallen/grid-core": "^0.1.10",

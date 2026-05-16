@@ -6,124 +6,109 @@
 
 "use strict";
 
-var request = require('supertest'),
-    should = require('should'),
-    // modulePath = "../../modules/index";
-    modulePath = "../../src/index";
+const { describe, it, before, after, beforeEach, afterEach } = require('node:test');
+const assert = require('node:assert');
+const modulePath = "../../src/index";
 
 describe('Circle smoke test', function() {
 
     var _module = null;
 
-    before(function(done) {
+    before(function() {
         // Call before all tests
         delete require.cache[require.resolve(modulePath)];
         _module = require(modulePath);
-        done();
     });
 
-    after(function(done) {
+    after(function() {
         // Call after all tests
-        done();
     });
 
-    beforeEach(function(done) {
+    beforeEach(function() {
         // Call before each test
-        done();
     });
 
-    afterEach(function(done) {
+    afterEach(function() {
         // Call after eeach test
-        done();
     });
 
-    it('module should exist', function(done) {
-        should.exist(_module);
-        done();
+    it('module should exist', function() {
+        assert.ok(_module != null);
     });
 
-    it('Circle method with no spec should return valid object', function(done) {
+    it('Circle method with no spec should return valid object', function() {
         var obj = _module.Circle();
-        should.exist(obj);
-        done();
+        assert.ok(obj != null);
     });
 
-    it('rings should match value in Circle parameter', function(done) {
+    it('rings should match value in Circle parameter', function() {
         var r = 6;
         var obj = _module.Circle( { rings: r } );
-        should.exist(obj);
-        obj.rings.should.eql(r);
-        done();
+        assert.ok(obj != null);
+        assert.deepStrictEqual(obj.rings, r);
     });
 
-    it('rows should return ring size', function(done) {
+    it('rows should return ring size', function() {
         let r = 6;
         var obj = _module.Circle({ rings: r });
-        obj.rows.should.eql(r);
-        done();
+        assert.deepStrictEqual(obj.rows, r);
     });
 
-    it('rowSize should return ringSize', function(done) {
+    it('rowSize should return ringSize', function() {
         let r = 6;
         var obj = _module.Circle({ rings: r });
-        obj.ringSize(0).should.eql(obj.rowSize(0));
-        obj.ringSize(1).should.eql(obj.rowSize(1));
-        obj.ringSize(2).should.eql(obj.rowSize(2));
-        obj.ringSize(3).should.eql(obj.rowSize(3));
-        obj.ringSize(4).should.eql(obj.rowSize(4));
-        obj.ringSize(5).should.eql(obj.rowSize(5));
-        done();
+        assert.deepStrictEqual(obj.ringSize(0), obj.rowSize(0));
+        assert.deepStrictEqual(obj.ringSize(1), obj.rowSize(1));
+        assert.deepStrictEqual(obj.ringSize(2), obj.rowSize(2));
+        assert.deepStrictEqual(obj.ringSize(3), obj.rowSize(3));
+        assert.deepStrictEqual(obj.ringSize(4), obj.rowSize(4));
+        assert.deepStrictEqual(obj.ringSize(5), obj.rowSize(5));
     });
 
-    it('ring size should return expected values', function(done) {
+    it('ring size should return expected values', function() {
         var r = 6;
         var obj = _module.Circle( { rings: r } );
-        obj.ringSize(0).should.eql(1);
-        obj.ringSize(1).should.eql(6);
-        obj.ringSize(2).should.eql(12);
-        obj.ringSize(3).should.eql(24);
-        obj.ringSize(4).should.eql(24);
-        obj.ringSize(5).should.eql(24);
-        done();
+        assert.deepStrictEqual(obj.ringSize(0), 1);
+        assert.deepStrictEqual(obj.ringSize(1), 6);
+        assert.deepStrictEqual(obj.ringSize(2), 12);
+        assert.deepStrictEqual(obj.ringSize(3), 24);
+        assert.deepStrictEqual(obj.ringSize(4), 24);
+        assert.deepStrictEqual(obj.ringSize(5), 24);
     });
 
-    it('fill should fill grid with value', function(done) {
+    it('fill should fill grid with value', function() {
         var r = 6;
         var obj = _module.Circle( { rings: r } );
         obj.fill(8);
         obj.log();
-        done();
     });
 
-    it('set should set cell value at ring 0 position 0', function(done) {
+    it('set should set cell value at ring 0 position 0', function() {
         var r = 6,
             obj = _module.Circle( { rings: r } ),
             ring = 0,
             pos = 0,
             v = 4;
-        obj.set(ring,pos,v).should.eql(true);
+        assert.deepStrictEqual(obj.set(ring,pos,v), true);
         var result = obj.get(ring,pos)
         obj.log();
-        done();
     });
 
-    it('set should set cell value at ring 1 position 0', function(done) {
+    it('set should set cell value at ring 1 position 0', function() {
         var r = 6,
             obj = _module.Circle( { rings: r } ),
             ring = 1,
             pos = 0,
             v = 4;
-        obj.set(ring,pos,v).should.eql(true);
+        assert.deepStrictEqual(obj.set(ring,pos,v), true);
         var result = obj.get(ring,pos)
         obj.log();
-        done();
     });
 
-    it('log should log the internal array', function(done) {
+    it('log should log the internal array', function() {
         var r = 3;
         var obj = _module.Circle( { rings: r } );
         obj.fill(8);
         obj.log();
-        done();
     });
 });
