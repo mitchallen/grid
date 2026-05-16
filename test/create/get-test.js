@@ -9,7 +9,7 @@
 var request = require('supertest'),
     should = require('should'),
     // modulePath = "../../modules/index";
-    modulePath = "../../dist/grid";
+    modulePath = "../../src/index";
 
 describe('get method', function() {
 
