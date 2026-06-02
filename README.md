@@ -382,15 +382,11 @@ You can find examples in the repos listed below in the __examples__ folder.
 You can reference a minimized client version inside an HTML script tag using one of these URL's:
 
 * https://cdn.rawgit.com/mitchallen/grid/v0.1.21/dist/grid.min.js
-* https://unpkg.com/@mitchallen/grid@0.1.21/dist/grid.min.js
+* https://cdn.jsdelivr.net/npm/@mitchallen/grid@0.1.21/dist/grid.min.js
 
 Adjust the URL's depending upon what version is available
 
-The __rawgit.com__ URL will pull based on the version from GitHub.
-
-The __unpkg.com__ URL will pull based on the version in npmjs.com.
-
-See http://rawgit.com and https://unpkg.com for other ways to retrieve the file. 
+The __jsDelivr__ URL will pull based on the version in npmjs.com.
 
 The factory function can be retrieved from window.MitchAllen.Grid:
 
@@ -409,7 +405,7 @@ Example:
         <!-- either cdn should work 
         <script src="https://cdn.rawgit.com/mitchallen/grid/v0.1.21/dist/grid.min.js"></script>
     -->
-        <script src="https://unpkg.com/@mitchallen/grid@0.1.21/dist/grid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mitchallen/grid@0.1.21/dist/grid.min.js"></script>
         <script>
           var factory = window.MitchAllen.Grid;
           console.log(factory);
