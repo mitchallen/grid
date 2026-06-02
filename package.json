@@ -16,7 +16,7 @@
     "test-triangle": "node --test $(find test/triangle -name '*-test.js')",
     "test-create": "node --test $(find test/create -name '*-test.js')",
     "test-jenkins": "node --test $(find test -name '*-test.js' | sort) > test-reports.tap",
-    "pubinit": "node build.js && npm publish --access public",
+    "pubinit": "node build.js && npm publish",
     "publish-pkg": "node build.js && npm version patch && git push --follow-tags && npm publish"
   },
   "repository": {
