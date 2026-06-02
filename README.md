@@ -382,7 +382,7 @@ You can find examples in the repos listed below in the __examples__ folder.
 You can reference a minimized client version inside an HTML script tag using one of these URL's:
 
 * https://cdn.rawgit.com/mitchallen/grid/v0.1.21/dist/grid.min.js
-* https://cdn.jsdelivr.net/npm/@mitchallen/grid@0.1.21/dist/grid.min.js
+* https://cdn.jsdelivr.net/gh/mitchallen/grid@v0.1.21/dist/grid.min.js
 
 Adjust the URL's depending upon what version is available
 
@@ -405,7 +405,7 @@ Example:
         <!-- either cdn should work 
         <script src="https://cdn.rawgit.com/mitchallen/grid/v0.1.21/dist/grid.min.js"></script>
     -->
-        <script src="https://cdn.jsdelivr.net/npm/@mitchallen/grid@0.1.21/dist/grid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/mitchallen/grid@v0.1.21/dist/grid.min.js"></script>
         <script>
           var factory = window.MitchAllen.Grid;
           console.log(factory);
