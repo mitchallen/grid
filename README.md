@@ -379,14 +379,12 @@ You can find examples in the repos listed below in the __examples__ folder.
 
 ### Browser Client Example
 
-You can reference a minimized client version inside an HTML script tag using one of these URL's:
+You can reference a minimized client version inside an HTML script tag using
+the jsDelivr CDN, which serves the file from GitHub by tag:
 
-* https://cdn.rawgit.com/mitchallen/grid/v0.1.21/dist/grid.min.js
 * https://cdn.jsdelivr.net/gh/mitchallen/grid@v0.1.21/dist/grid.min.js
 
-Adjust the URL's depending upon what version is available
-
-The __jsDelivr__ URL will pull based on the version in npmjs.com.
+Adjust the URL depending upon what version is available.
 
 The factory function can be retrieved from window.MitchAllen.Grid:
 
@@ -402,9 +400,6 @@ Example:
         <meta charset="utf-8">
         <title>Grid Example</title>
         <meta name="description" content="Grid Example">
-        <!-- either cdn should work 
-        <script src="https://cdn.rawgit.com/mitchallen/grid/v0.1.21/dist/grid.min.js"></script>
-    -->
         <script src="https://cdn.jsdelivr.net/gh/mitchallen/grid@v0.1.21/dist/grid.min.js"></script>
         <script>
           var factory = window.MitchAllen.Grid;
