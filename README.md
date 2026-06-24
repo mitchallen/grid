@@ -4,6 +4,11 @@
 A 2D grid that uses zero-based indexing.
 ----------------------------------------------------
 
+[![CI](https://github.com/mitchallen/grid/actions/workflows/ci.yml/badge.svg)](https://github.com/mitchallen/grid/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/mitchallen/grid/branch/master/graph/badge.svg)](https://codecov.io/gh/mitchallen/grid)
+[![Version](https://img.shields.io/github/package-json/v/mitchallen/grid)](https://github.com/mitchallen/grid/pkgs/npm/grid)
+[![License](https://img.shields.io/github/license/mitchallen/grid.svg)](https://github.com/mitchallen/grid/blob/master/LICENSE)
+
 * * *
 ## Installation
 
