@@ -37,6 +37,16 @@ describe('create method', function() {
         assert.ok(obj != null);
     });
 
+    it('deprecated create() should return a square grid', function() {
+        var origWarn = console.warn;
+        console.warn = function() {};
+        var obj = _module.create({ x: 5, y: 5 });
+        console.warn = origWarn;
+        assert.ok(obj != null);
+        assert.deepStrictEqual(obj.xSize, 5);
+        assert.deepStrictEqual(obj.ySize, 5);
+    });
+
     it('should return object when called no spec x parameter', function() {
         var obj = _module.Square({ y: 5 });
         assert.ok(obj != null);
