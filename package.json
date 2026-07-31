@@ -3,6 +3,10 @@
   "version": "0.1.26",
   "description": "A 2D grid that uses zero-based indexing",
   "main": "src/index.js",
+  "files": [
+    "src",
+    "dist"
+  ],
   "browser": "dist/grid.min.js",
   "scripts": {
     "start": "node src/index.js",
