@@ -7,6 +7,10 @@ const base = {
   entryPoints: ['./src/index.js'],
   bundle: true,
   platform: 'browser',
+  // Resolve deps via "main", not "browser". Sibling @mitchallen packages point
+  // their "browser" field at a global-assigning IIFE that exports nothing, so
+  // bundling it yields an empty object and .create() is undefined at runtime.
+  mainFields: ['main'],
   globalName: 'MitchAllen.Grid',
   format: 'iife',
   target: ['es2017'],
