@@ -1,13 +1,12 @@
 {
   "name": "@mitchallen/grid",
-  "version": "0.1.28",
+  "version": "0.1.29",
   "description": "A 2D grid that uses zero-based indexing",
   "main": "src/index.js",
   "files": [
     "src",
     "dist"
   ],
-  "browser": "dist/grid.min.js",
   "scripts": {
     "start": "node src/index.js",
     "build": "node build.js",
@@ -36,8 +35,8 @@
     "globals": "^16.0.0"
   },
   "dependencies": {
-    "@mitchallen/grid-core": "^0.1.14",
-    "@mitchallen/grid-square": "^0.1.12"
+    "@mitchallen/grid-core": "^0.1.15",
+    "@mitchallen/grid-square": "^0.1.13"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
