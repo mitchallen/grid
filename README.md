@@ -404,7 +404,7 @@ You can find examples in the repos listed below in the __examples__ folder.
 You can reference a minimized client version inside an HTML script tag using
 the jsDelivr CDN, which serves the file from GitHub by tag:
 
-* https://cdn.jsdelivr.net/gh/mitchallen/grid@v0.1.29/dist/grid.min.js
+* https://cdn.jsdelivr.net/gh/mitchallen/grid@v0.1.30/dist/grid.min.js
 
 Adjust the URL depending upon what version is available.
 
@@ -422,7 +422,7 @@ Example:
         <meta charset="utf-8">
         <title>Grid Example</title>
         <meta name="description" content="Grid Example">
-        <script src="https://cdn.jsdelivr.net/gh/mitchallen/grid@v0.1.29/dist/grid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/mitchallen/grid@v0.1.30/dist/grid.min.js"></script>
         <script>
           var factory = window.MitchAllen.Grid;
           console.log(factory);
