@@ -3,7 +3,7 @@ name: Run Tests on Branch Push
 on:
   push:
     branches-ignore:
-      - master
+      - main
       - main
 
 jobs:
