@@ -1,3 +1,9 @@
+> **This repository is archived.** `@mitchallen/grid` is now developed and
+> published from the [maze-generator-v2](https://github.com/mitchallen/maze-generator-v2)
+> monorepo, in [`packages/grid`](https://github.com/mitchallen/maze-generator-v2/tree/main/packages/grid).
+> The package name and install instructions are unchanged; new versions come
+> from there.
+
 @mitchallen/grid
 ===============================
 
