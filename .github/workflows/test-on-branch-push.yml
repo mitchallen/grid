@@ -4,7 +4,6 @@ on:
   push:
     branches-ignore:
       - main
-      - main
 
 jobs:
   test:
@@ -19,8 +18,11 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '24'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@mitchallen'
+
+      # Authenticate to GitHub Packages without setup-node's registry-url/scope
+      # inputs, which write a scope mapping that breaks npm ci.
+      - run: echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> ~/.npmrc
+
       - name: Install dependencies
         run: npm install
         env:
